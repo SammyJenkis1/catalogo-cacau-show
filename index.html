@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo — Cacau Show</title>
+  <meta name="description" content="Catálogo profissional de produtos Cacau Show: trufas, tabletes 100g/20g e biscoiteria. Interface moderna, responsiva e com banner promocional rotativo." />
+  <style>
+    :root{
+      --bg:#fff8f4;
+      --choco-1:#4b2e2b;
+      --choco-2:#7b4b3f;
+      --accent:#c77a49;
+      --muted:#6b6b6b;
+      --glass: rgba(255,255,255,0.6);
+      --card-shadow: 0 6px 18px rgba(75,46,43,0.12);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0;}
+    body{
+      background:linear-gradient(180deg,var(--bg),#fffefc);
+      color:#2b2b2b;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+    }
+
+    .container{max-width:1200px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--choco-1),var(--choco-2));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;box-shadow:var(--card-shadow)
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    /* Banner / Carousel */
+    .hero{margin:18px 0;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--card-shadow);}
+    .carousel{display:flex;transition:transform .6s cubic-bezier(.2,.9,.2,1);width:300%}
+    .slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px;align-items:center;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(0,0,0,0));}
+    .slide .promo{padding:12px 18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.12));backdrop-filter:blur(4px)}
+    .slide h2{margin:0 0 6px 0;color:var(--choco-1)}
+    .slide p{margin:0 0 12px 0;color:var(--muted)}
+    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--choco-1);color:white;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(75,46,43,0.18)}
+    .slide img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+
+    .carousel-controls{position:absolute;left:16px;right:16px;bottom:12px;display:flex;justify-content:center;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer}
+    .dot.active{background:var(--accent);transform:scale(1.15)}
+
+    /* Filters & Search */
+    .controls{display:flex;gap:12px;align-items:center;margin:14px 0;flex-wrap: wrap;}
+    .search{flex:1 1 100%; max-width:400px;display:flex;background:#fff;border-radius:12px;padding:8px 12px;align-items:center;box-shadow:var(--card-shadow);margin-bottom:12px;}
+    .search input{border:0;outline:0;font-size:14px;padding:8px;width:100%;background:transparent}
+    .filters{display:flex;gap:8px;flex-wrap: wrap;}
+    .chip{padding:8px 12px;border-radius:999px;background:linear-gradient(180deg,#fff,#fffefe);border:1px solid #f0e6e3;font-weight:600;cursor:pointer;white-space: nowrap;}
+    .chip.active{background:var(--accent);color:white;border:none}
+
+    /* Product grid */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    @media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:420px){.grid{grid-template-columns:1fr}}
+
+    .card{background:white;border-radius:12px;padding:12px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:10px;transition:transform .18s ease,box-shadow .18s ease;cursor: default;}
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(75,46,43,0.12)}
+    .thumb{width:100%;height:160px;border-radius:10px;object-fit:cover}
+    .meta{display:flex;justify-content:space-between;align-items:center}
+    .price{font-weight:800;color:var(--choco-1)}
+    .muted{color:var(--muted);font-size:13px}
+    .badge{background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 8px;border-radius:8px;font-size:12px;font-weight:700}
+    .desc{font-size:13px;color:var(--muted);min-height:36px}
+    .actions{display:flex;gap:8px;flex-wrap: wrap;}
+    .btn{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:700;flex-grow: 1; min-width: 90px;}
+    .btn.ghost{background:transparent;border:1px solid #eee}
+    .btn.primary{background:var(--choco-1);color:white;white-space: nowrap;}
+
+    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(11,7,6,0.5);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000;}
+    .modal{background:white;border-radius:12px;max-width:900px;width:100%;padding:18px;box-shadow:0 18px 60px rgba(0,0,0,0.3);display:grid;grid-template-columns:1fr 1fr;gap:18px;position: relative;}
+    .modal img{width:100%;height:320px;object-fit:cover;border-radius:10px}
+    .modal h3{margin:0}
+    .close{position:absolute;right:18px;top:12px;border:0;background:transparent;font-size:24px;color:var(--choco-1);cursor:pointer;}
+
+    /* micro interactions */
+    .ribbon{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 10px;border-radius:8px;font-weight:700;z-index:1;}
+
+    /* small helpers */
+    .row{display:flex;gap:12px;align-items:center}
+    
+    #cartWidget {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      padding: 12px;
+      width: 260px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 998;
+    }
+    #cartWidget img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    #cartWidget .item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    #cartWidget .title {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    #cartWidget .price {
+      font-size: 13px;
+      color: var(--choco-1);
+    }
+
+    /* Botão flutuante do WhatsApp */
+    #whatsappBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      z-index: 999;
+      transition: transform 0.2s ease;
+    }
+    #whatsappBtn:hover {
+      transform: scale(1.05);
+    }
+    #whatsappBtn svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    /* Toast Container */
+    #toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Toast */
+    .toast {
+      background-color: #6b3e26; /* marrom chocolate escuro */
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(13, 22, 109, 0.8);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      animation: slideIn 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+      min-width: 220px;
+    }
+
+    /* Ícone no toast */
+    .toast i {
+      margin-right: 8px;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* Animações */
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: translateX(100%); }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">CS</div>
+        <div>
+          <h1>Catálogo — Cacau Show</h1>
+          <p class="lead">Trufas | Tabletes 100g / 20g | Biscoiteria — Apresentação profissional.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="muted">Catálogo digital — Videira SC</div>
+      </div>
+    </header>
+
+    <div id="cartWidget">
+      <div id="cartItems"></div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <!-- Botão WhatsApp -->
+    <a id="whatsappBtn" target="_blank" aria-label="Finalizar pedido no WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 .4a15.6 15.6 0 00-13.5 23.4L.4 31.6l8-2.1A15.6 15.6 0 1016 .4zm0 28.4a12.8 12.8 0 01-6.5-1.8l-.5-.3-4.8 1.2 1.3-4.7-.3-.5a12.8 12.8 0 1110.8 6.1zm7.2-9.6c-.4-.2-2.4-1.2-2.8-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.3 1.6-.2.2-.5.3-.9.1s-1.8-.7-3.4-2.2c-1.3-1.2-2.2-2.6-2.4-3-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6"/>
+      </svg>
+      Finalizar
+    </a>
+
+    <!-- HERO / Carousel -->
+    <section class="hero" aria-label="Promoções em destaque">
+      <div class="ribbon">Promoções</div>
+      <div id="carousel" class="carousel" role="list">
+        <article class="slide" role="listitem" aria-label="Promo 1">
+          <div class="promo">
+            <h2>Combo Trufas — Leve 4 pague 3</h2>
+            <p>Seleção especial de trufas sortidas. Oferta por tempo limitado.</p>
+            <a class="cta" href="#grid" data-track="promo-1">Ver produtos</a>
+          </div>
+          <img src="https://images.unsplash.com/photo-1604908177522-9e0c1b63f5d6?auto=format&fit=crop&w=1200&q=60" alt="Seleção de trufas"/>
+        </article>
+
+        <article class="slide" role="listitem" aria-label="Promo 2">
+          <div class="promo">
+            <h2>Minishow — leve 2 unidades e a segunda sai por 19,99</h2>
+            <p>Bombons sortidos que derretem na boca.</p>
+            <a class="cta" href="#grid" data-track="promo-2">Compre agora</a>
+          </div>
+          <img src="https://images.unsplash.com/photo-1616745301236-e48b3f8ae6b0?auto=format&fit=crop&w=1200&q=60" alt="Tabletes de chocolate"/>
+        </article>
+
+        <article class="slide" role="listitem" aria-label="Promo 3">
+          <div class="promo">
+            <h2>Biscoiteria — Leve 2 wafers por apenas 26,99</h2>
+            <p>Cookies, wafers e biscoitos para combinar com seu café.</p>
+            <a class="cta" href="#grid" data-track="promo-3">Explorar</a>
+          </div>
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60" alt="Biscoitos e wafers"/>
+        </article>
+      </div>
+
+      <div class="carousel-controls" aria-hidden="true">
+        <button class="dot" data-index="0" aria-label="Promoção 1"></button>
+        <button class="dot" data-index="1" aria-label="Promoção 2"></button>
+        <button class="dot" data-index="2" aria-label="Promoção 3"></button>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="search" role="search" aria-label="Pesquisar produtos">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="opacity:.6" aria-hidden="true" focusable="false"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"></circle></svg>
+        <input id="searchInput" type="search" placeholder="Buscar produtos" aria-label="Buscar produtos">
+      </div>
+      <div class="filters" role="list" aria-label="Filtrar por categoria">
+        <button class="chip active" data-category="todos">Todos</button>
+        <button class="chip" data-category="trufas">Trufas</button>
+        <button class="chip" data-category="tabletes">Tabletes</button>
+        <button class="chip" data-category="biscoiteria">Biscoiteria</button>
+      </div>
+    </div>
+
+    <!-- Produtos -->
+    <section id="grid" class="grid" role="list" aria-label="Lista de produtos">
+      <!-- Cards via JS -->
+    </section>
+
+    <!-- Modal -->
+    <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1" style="display:none;">
+      <div class="modal" role="document">
+        <button class="close" aria-label="Fechar janela">&times;</button>
+        <img id="modalImg" src="" alt="" />
+        <div>
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc"></p>
+          <div class="row" style="margin-top:20px;">
+            <span class="price" id="modalPrice"></span>
+            <button class="btn primary" id="addToCartBtn">Adicionar ao carrinho</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Cacau Show - Catálogo Digital
+    </footer>
+  </div>
+
+<script>
+  const produtos = [
+    {
+      id: 1,
+      nome: "Trufa Sortida 4 Unidades",
+      categoria: "trufas",
+      descricao: "Caixa com 4 trufas sortidas, sabores variados.",
+      preco: 29.90,
+      imagem: "https://images.unsplash.com/photo-1604908177522-9e0c1b63f5d6?auto=format&fit=crop&w=400&q=60",
+    },
+    {
+      id: 2,
+      nome: "Tablete Chocolate 100g",
+      categoria: "tabletes",
+      descricao: "Tablete ao leite 100g, sabor intenso.",
+      preco: 12.50,
+      imagem: "https://images.unsplash.com/photo-1616745301236-e48b3f8ae6b0?auto=format&fit=crop&w=400&q=60",
+    },
+    {
+      id: 3,
+      nome: "Wafer Chocolate",
+      categoria: "biscoiteria",
+      descricao: "Wafer crocante com cobertura de chocolate.",
+      preco: 14.90,
+      imagem: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=60",
+    },
+    {
+      id: 4,
+      nome: "Trufa Chocolate Branco",
+      categoria: "trufas",
+      descricao: "Deliciosa trufa de chocolate branco.",
+      preco: 32.00,
+      imagem: "https://images.unsplash.com/photo-1616745301236-e48b3f8ae6b0?auto=format&fit=crop&w=400&q=60",
+    }
+  ];
+
+  const grid = document.getElementById('grid');
+  const searchInput = document.getElementById('searchInput');
+  const filterChips = document.querySelectorAll('.filters .chip');
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalPrice = document.getElementById('modalPrice');
+  const addToCartBtn = document.getElementById('addToCartBtn');
+  const closeModalBtn = modalBackdrop.querySelector('.close');
+  const cartWidget = document.getElementById('cartWidget');
+  const cartItemsContainer = document.getElementById('cartItems');
+
+  let selectedProduct = null;
+  let cart = [];
+
+  // Renderizar cards
+  function renderProdutos(filter = 'todos', search = '') {
+    grid.innerHTML = '';
+    let filtered = produtos.filter(p => {
+      const categoryMatch = filter === 'todos' || p.categoria === filter;
+      const searchMatch = p.nome.toLowerCase().includes(search.toLowerCase());
+      return categoryMatch && searchMatch;
+    });
+
+    if(filtered.length === 0){
+      grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--muted); font-weight:700;">Nenhum produto encontrado.</p>`;
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.setAttribute('role','listitem');
+      card.innerHTML = `
+        <img class="thumb" src="${p.imagem}" alt="${p.nome}">
+        <div class="meta">
+          <h4>${p.nome}</h4>
+          <span class="price">R$ ${p.preco.toFixed(2).replace('.',',')}</span>
+        </div>
+        <p class="desc">${p.descricao}</p>
+        <div class="actions">
+          <button class="btn primary" data-id="${p.id}" aria-label="Comprar ${p.nome}">Comprar</button>
+          <button class="btn ghost" data-id="${p.id}" aria-label="Mais detalhes de ${p.nome}">Detalhes</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Filtrar produtos
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderProdutos(chip.dataset.category, searchInput.value);
+    });
+  });
+
+  // Buscar produtos
+  searchInput.addEventListener('input', () => {
+    const activeChip = document.querySelector('.filters .chip.active');
+    renderProdutos(activeChip ? activeChip.dataset.category : 'todos', searchInput.value);
+  });
+
+  // Modal
+  function openModal(prod) {
+    selectedProduct = prod;
+    modalImg.src = prod.imagem;
+    modalImg.alt = prod.nome;
+    modalTitle.textContent = prod.nome;
+    modalDesc.textContent = prod.descricao;
+    modalPrice.textContent = `R$ ${prod.preco.toFixed(2).replace('.',',')}`;
+    modalBackdrop.style.display = 'flex';
+    modalBackdrop.focus();
+  }
+  function closeModal() {
+    modalBackdrop.style.display = 'none';
+    selectedProduct = null;
+  }
+  closeModalBtn.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', e => {
+    if(e.target === modalBackdrop) closeModal();
+  });
+
+  // Carrinho
+  function addToCart(prod) {
+    const existing = cart.find(item => item.id === prod.id);
+    if(existing){
+      existing.qty++;
+    } else {
+      cart.push({...prod, qty:1});
+    }
+    renderCart();
+  }
+
+  function renderCart() {
+    if(cart.length === 0){
+      cartWidget.style.display = 'none';
+      return;
+    }
+    cartWidget.style.display = 'flex';
+    cartItemsContainer.innerHTML = '';
+    cart.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = `
+        <img src="${item.imagem}" alt="${item.nome}">
+        <div>
+          <div class="title">${item.nome} x${item.qty}</div>
+          <div class="price">R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}</div>
+        </div>
+      `;
+      cartItemsContainer.appendChild(div);
+    });
+  }
+
+  // Toast (alerta discreto)
+  const toastContainer = document.getElementById('toast-container');
+
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<i>🍫</i> ${message}`;
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.animation = 'fadeOut 0.4s ease forwards';
+      toast.addEventListener('animationend', () => toast.remove());
+    }, 2800);
+  }
+
+  // Clique nos botões de Comprar e Detalhes
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+
+    const id = Number(btn.dataset.id);
+    if(!id) return;
+
+    const prod = produtos.find(p => p.id === id);
+    if(!prod) return;
+
+    if(btn.classList.contains('primary')) {
+      // Comprar direto, adiciona ao carrinho e mostra toast
+      addToCart(prod);
+      showToast(`Produto "${prod.nome}" adicionado ao carrinho.`);
+    } else if(btn.classList.contains('ghost')){
+      // Mostrar modal detalhes
+      openModal(prod);
+    }
+  });
+
+  // Botão Adicionar no modal só adiciona ao carrinho, sem toast, e fecha modal
+  addToCartBtn.addEventListener('click', () => {
+    if(selectedProduct){
+      addToCart(selectedProduct);
+      closeModal();
+    }
+  });
+
+  // Carousel simples auto slide e dots
+  const carousel = document.getElementById('carousel');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+  function showSlide(i){
+    if(i < 0) i = dots.length -1;
+    if(i >= dots.length) i = 0;
+    carousel.style.transform = `translateX(-${i*100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[i].classList.add('active');
+    currentSlide = i;
+  }
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      showSlide(Number(dot.dataset.index));
+    });
+  });
+  showSlide(0);
+  setInterval(() => {
+    showSlide(currentSlide+1);
+  }, 7000);
+
+  // Inicial render
+  renderProdutos();
+
+  // Atualizar botão WhatsApp com pedido
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  whatsappBtn.addEventListener('click', (e) => {
+    if(cart.length === 0){
+      e.preventDefault();
+      alert("Seu carrinho está vazio. Adicione produtos antes de finalizar.");
+      return;
+    }
+    // Montar mensagem para WhatsApp
+    let msg = 'Olá, gostaria de fazer o pedido:\n';
+    cart.forEach(item => {
+      msg += `- ${item.nome} x${item.qty} = R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}\n`;
+    });
+    const total = cart.reduce((acc,cur) => acc + cur.preco * cur.qty, 0);
+    msg += `Total: R$ ${total.toFixed(2).replace('.',',')}`;
+
+    const encoded = encodeURIComponent(msg);
+    // Número fictício, altere para o seu número real no formato internacional sem o +
+    whatsappBtn.href = `https://wa.me/49991599778?text=${encoded}`;
+  });
+
+</script>
+</body>
+</html>
