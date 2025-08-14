@@ -228,7 +228,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <path d="M16 .4a15.6 15.6 0 00-13.5 23.4L.4 31.6l8-2.1A15.6 15.6 0 1016 .4zm0 28.4a12.8 12.8 0 01-6.5-1.8l-.5-.3-4.8 1.2 1.3-4.7-.3-.5a12.8 12.8 0 1110.8 6.1zm7.2-9.6c-.4-.2-2.4-1.2-2.8-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.3 1.6-.2.2-.5.3-.9.1s-1.8-.7-3.4-2.2c-1.3-1.2-2.2-2.6-2.4-3-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6"/>
       </svg>
-      Finalizar
+      Finalizar whatsApp
     </a>
 
     <!-- HERO / Carousel -->
@@ -2074,24 +2074,27 @@
   // Atualizar botão WhatsApp com pedido
   const whatsappBtn = document.getElementById('whatsappBtn');
   whatsappBtn.addEventListener('click', (e) => {
-    if(cart.length === 0){
-      e.preventDefault();
-      alert("Seu carrinho está vazio. Adicione produtos antes de finalizar.");
-      return;
-    }
-    // Montar mensagem para WhatsApp
-    let msg = 'Olá, gostaria de fazer o pedido:\n';
-    cart.forEach(item => {
-      msg += `- ${item.nome} x${item.qty} = R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}\n`;
-    });
-    const total = cart.reduce((acc,cur) => acc + cur.preco * cur.qty, 0);
-    msg += `Total: R$ ${total.toFixed(2).replace('.',',')}`;
-
-    const encoded = encodeURIComponent(msg);
-    // Número fictício, altere para o seu número real no formato internacional sem o +
-    whatsappBtn.href = `https://wa.me/5549991099778?text=${encoded}`;
-    whatsappBtn.href = `https://wa.me/554935660320?text=${encoded}`;
+  if(cart.length === 0){
+    e.preventDefault();
+    alert("Seu carrinho está vazio. Adicione produtos antes de finalizar.");
+    return;
+  }
+  let msg = 'Olá, gostaria de fazer o pedido:\n';
+  cart.forEach(item => {
+    msg += `- ${item.nome} x${item.qty} = R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}\n`;
   });
+  const total = cart.reduce((acc,cur) => acc + cur.preco * cur.qty, 0);
+  msg += `Total: R$ ${total.toFixed(2).replace('.',',')}`;
+
+  const encoded = encodeURIComponent(msg);
+
+  // Pergunta qual número usar
+  if (confirm("Enviar para WhatsApp Saul?\n(Clique em Cancelar para usar o WhatsApp Shopping)")) {
+    window.open(`https://wa.me/5549991599778?text=${encoded}`, "_blank");
+  } else {
+    window.open(`https://wa.me/5549991099778?text=${encoded}`, "_blank");
+  }
+});
 
 </script>
 </body>
