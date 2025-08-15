@@ -10,7 +10,7 @@
   --bg:#fff8f4;
   --choco-1:#4b2e2b;
   --choco-2:#7b4b3f;
-  --accent:#ff4f4f;
+  --accent:#520c0c;
   --muted:#6b6b6b;
   --glass: rgba(255,255,255,0.45);
   --card-shadow: 0 8px 20px rgba(75,46,43,0.15);
@@ -26,7 +26,10 @@ body{
   -moz-osx-font-smoothing:grayscale;
   padding:24px;
 }
-
+/* Logo */
+.logo {
+  height: 50px;
+}
 .container{max-width:1200px;margin:0 auto}
 /* From Uiverse.io by alafshate */ 
 .card1 {
@@ -86,6 +89,23 @@ body{
   }
 }
 
+.cadastro-btn {
+  background: linear-gradient(90deg, #6b3e2e, #613912);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cadastro-btn:hover {
+  background: linear-gradient(90deg, #d4a373, #6b3e2e);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
 
 header{
   display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
@@ -244,7 +264,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 
 /* micro interactions */
 .ribbon{
-  position:absolute;right:18px;top:18px;background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 10px;border-radius:8px;font-weight:700;z-index:1;
+  position:absolute;right:18px;top:18px;background:linear-gradient(90deg,var(--accent),#582916);color:white;padding:6px 10px;border-radius:8px;font-weight:700;z-index:1;
 }
 
 /* small helpers */
@@ -364,7 +384,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">CS</div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhx86xmNSLeL-HbZxbaWQMULlFGM9xLduf1g&s" alt="Logo Cacau Show" class="logo">
         <div>
           <h1>Catálogo — Cacau Show</h1>
           <p class="lead">Trufas | Tabletes 100g / 20g | Biscoiteria.</p>
@@ -373,6 +393,9 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       <div class="row">
         <div class="muted">Catálogo digital — Videira SC</div>
       </div>
+      <a href="https://cacaulovers.com.br" target="_blank" class="cadastro-btn">
+  Já tem cadastro conosco? <strong>Faça agora mesmo!</strong>
+</a>
       <!-- From Uiverse.io by alafshate --> 
 <div class="card1">
   <a class="socialContainer containerOne" href="https://www.instagram.com/lojacacaushowvideira.sc" target="_blank">
@@ -488,14 +511,14 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 1,
       nome: "Trufa tradicional | 30G",
       categoria: "trufas",
-      descricao: "Trufa tradicional com recheio ao leite.",
+      descricao: "Trufa Tradicional é perfeita para a ocasião, com sua textura macia e recheio cremoso, irá encantar o paladar.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0a5a2195/large/1002633_4.png",
     },{
       id: 2,
       nome: "Trufa mezzo | 30G",
       categoria: "trufas",
-      descricao: "Trufa de chocolate ao leite e branco.",
+      descricao: "A combinação perfeita do chocolate ao leite e branco, ideal para adoçar ainda mais o seu dia a dia!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwa3043568/large/1002616_1.png",
     },
@@ -503,7 +526,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 3,
       nome: "Trufa paçoca | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de paçoca",
+      descricao: "Trufa ao Leite de Paçoca é perfeita, com sua textura macia e recheio cremoso, irá encantar o paladar!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw2d4a783c/large/1002724_1.png",
     },
@@ -511,7 +534,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 4,
       nome: "Trufa maracujá | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de maracujá.",
+      descricao: "A combinação irresistível do chocolate ao leite com um recheio cremoso de maracujá. Um doce que encanta!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw79c042ee/large/1002639_1.png",
     },
@@ -519,7 +542,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 5,
       nome: "Trufa coco | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de coco",
+      descricao: "Experimente a combinação perfeita de chocolate ao leite de alta qualidade com recheio cremoso sabor coco. A Trufa de Coco irá encantar seu paladar!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw995bb90a/large/1002622_1.png",
     },
@@ -527,7 +550,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 6,
       nome: "Trufa morango | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de morango",
+      descricao: "Trufa de Morango se encaixa em qualquer ocasião, seja como uma lembrança para alguém especial ou para um mimo no seu dia.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwde5c1626/large/1002604_1.png",
     },
@@ -535,7 +558,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 7,
       nome: "Trufa torta de limão | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de torta de limão",
+      descricao: "Combina a cremosidade do chocolate branco com o toque marcante do limão, oferecendo um sabor leve e equilibrado.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw941657c3/large/1003424_1.png",
     }
@@ -544,7 +567,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 8,
       nome: "Trufa Petit Gateau | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de cremoso Peti gateau",
+      descricao: "A Trufa Artesanal Petit Gateau é a combinação perfeita para você que deseja um toque de sofisticação e sabor no dia a dia, além de muita cremosidade.",
       preco: 5.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw7fe8de0a/large/1002896_1.png",
     },
@@ -552,7 +575,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 9,
       nome: "Trufa Grancher licor | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de licor de cereja",
+      descricao: "É a combinação ideal para você que deseja um toque de sofisticação no dia a dia, ótima para tornar momentos ainda mais especiais.",
       preco: 5.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwab38ac18/large/1003075_1.png",
     },
@@ -560,7 +583,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 10,
       nome: "Trufa LaNut avelã | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de avelã",
+      descricao: "Sofisticação em uma trufa irresistível de avelã e chocolate. A Trufa LaNut de Chocolate ao Leite e Avelã é perfeita para qualquer momento do seu dia!",
       preco: 5.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb5c1604e/large/1002642_2.png",
     },
@@ -568,7 +591,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 11,
       nome: "Trufa LaNut pistache | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de pistache",
+      descricao: "Combina o sabor suave do chocolate ao leite com o recheio cremoso de pistache. Experimente e se surpreenda!",
       preco: 5.99,
       imagem: "https://shop.brazilmarketandcafe.com/cdn/shop/files/1003394_1.webp?v=1732839832",
     } ,
@@ -576,7 +599,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 12,
       nome: "Trufa Mochaccino | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de mochaccino",
+      descricao: "É a combinação perfeita para quem deseja um toque de cremosidade e sabor no dia, se tornando a companhia ideal para todos os momentos!",
       preco: 5.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwdb08fbac/large/1002854_1.png",
     },
@@ -584,7 +607,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 13,
       nome: "Trufa Marula | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de licor de marula",
+      descricao: "A Trufa Marula da Cacau Show é ter um momento de leveza no seu dia e uma experiência de sabor sem igual. Com uma textura suave, essa trufa vai encantar seu paladar!",
       preco: 5.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwbe62b893/large/1003138_2.png",
     },
@@ -592,7 +615,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 14,
       nome: "Trufa Maça com nozes | 30g",
       categoria: "trufas",
-      descricao: "Trufa com recheio de maça com recheio de nozes",
+      descricao: "Chocolate ao leite com recheio cremoso de maçã e nozes. Um sabor refinado!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw7bf9a20f/large/1003742_1.png",
     }
@@ -609,7 +632,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 16,
       nome: "Trufa bendito cacao 55% | 30g",
       categoria: "trufas",
-      descricao: "Trufa 55% cacau",
+      descricao: "Conheça a Trufa Bendito Cacao 55% Cacau, uma opção para deixar o seu dia a dia ainda mais intenso, com muito sabor e cremosidade. Um encanto de trufa!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw8466f357/large/1002648_2.png",
     },
@@ -1041,7 +1064,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 69,
       nome: "Wafer cappuccino| 80g",
       categoria: "biscoiteria",
-      descricao: "Conheça o Tablete Zero Lactose ao Leite, muita praticidade e sabor no seu dia a dia. Se surpreenda!",
+      descricao: "Crocante e cremoso, ideal para um lanche saboroso a qualquer hora ou para deixar o dia de alguém especial, ainda mais doce!",
       preco: 15.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0f963476/large/1003325_1.png",
     },
@@ -1209,7 +1232,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 90,
       nome: "Drageado Bless Zero Adição de Açúcar ao Leite| 150g",
       categoria: "drageados",
-      descricao: "O Wafer Bytes Sintonia Recheado da Cacau Show oferece crocância e um recheio cremoso, proporcionando um lanche saboroso e prático em cada mordida!",
+      descricao: "Flocos crocantes cobertos com chocolate ao leite, sem adição de açúcares e irresistíveis!",
       preco: 34.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw39883f46/large/1003466_1.png",
     },
@@ -1859,7 +1882,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 170,
       nome: "Delícia em camadas| CS",
       categoria: "servico",
-      descricao: "Uma delícia camadas com frutas e 2 chocolates, aconpanha um sorvete",
+      descricao: "Uma delícia em camadas com frutas e 2 chocolates, acompanha um sorvete",
       preco: 49.99,
       imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk5E5mcHM_3zl7IY-nKdl51yubnIoh0tcgx6hq-H-3htSEgqRuuxFnb8zJCqh4Y4vNRFs&usqp=CAU",
     },
@@ -2047,6 +2070,30 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete Bendito Cacao de Chocolate 85% Cacau, ótima escolha para quem ama sabores intensos. Porção de 5g para uma degustação rápida e sofisticada!",
       preco: 1.29,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw1262b46a/large/1002945_1.png",
+    },
+     {
+      id: 194,
+      nome: "Chocoarte Parabéns| 40g",
+      categoria: "caixas",
+      descricao: "Celebra conquistas com o sabor do chocolate ao leite e uma mensagem especial!  Aproveite para demonstrar seu carinho e afeto!",
+      preco: 14.99,
+      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwba64b119/large/1000421_1.png",
+    },
+     {
+      id: 195,
+      nome: "Chocoarte Te amo| 40g",
+      categoria: "caixas",
+      descricao: "Surpreenda com o Tablete ao Leite Chocoarte Te Amo, uma deliciosa maneira de demonstrar carinho com o irresistível chocolate ao leite da Cacau Show.",
+      preco: 14.99,
+      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw21da875c/large/1000507_1.png",
+    },
+     {
+      id: 196,
+      nome: "Chocoarte Gratidão| 40g",
+      categoria: "caixas",
+      descricao: "O Tablete ao Leite Chocoarte Gratidão tem o sabor clássico e uma mensagem especial para presentear com carinho! Aproveite para demonstrar seu carinho e afeto!",
+      preco: 14.99,
+      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw2ea5b014/large/1002203_1.png",
     }
 
 
