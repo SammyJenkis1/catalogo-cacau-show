@@ -7,198 +7,356 @@
   <meta name="description" content="Catálogo profissional de produtos Cacau Show: trufas, tabletes 100g/20g e biscoiteria. Interface moderna, responsiva e com banner promocional rotativo." />
   <style>
     :root{
-      --bg:#fff8f4;
-      --choco-1:#4b2e2b;
-      --choco-2:#7b4b3f;
-      --accent:#863c3c;
-      --muted:#6b6b6b;
-      --glass: rgba(255,255,255,0.6);
-      --card-shadow: 0 6px 18px rgba(75,46,43,0.12);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
+  --bg:#fff8f4;
+  --choco-1:#4b2e2b;
+  --choco-2:#7b4b3f;
+  --accent:#ff4f4f;
+  --muted:#6b6b6b;
+  --glass: rgba(255,255,255,0.45);
+  --card-shadow: 0 8px 20px rgba(75,46,43,0.15);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%; margin:0;}
-    body{
-      background:linear-gradient(180deg,var(--bg),#fffefc);
-      color:#2b2b2b;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:24px;
-    }
+*{box-sizing:border-box}
+html,body{height:100%; margin:0;}
+body{
+  background:linear-gradient(180deg,var(--bg),#fffefc);
+  color:#2b2b2b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
 
-    .container{max-width:1200px;margin:0 auto}
+.container{max-width:1200px;margin:0 auto}
+/* From Uiverse.io by alafshate */ 
+.card1 {
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
 
-    header{
-      display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
-    }
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--choco-1),var(--choco-2));
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;box-shadow:var(--card-shadow)
-    }
-    h1{margin:0;font-size:20px}
-    p.lead{margin:0;color:var(--muted);font-size:13px}
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: rgb(68, 8, 8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
 
-    /* Banner / Carousel */
-    .hero{margin:18px 0;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--card-shadow);}
-    .carousel{display:flex;transition:transform .6s cubic-bezier(.2,.9,.2,1);width:300%}
-    .slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px;align-items:center;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(0,0,0,0));}
-    .slide .promo{padding:12px 18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.12));backdrop-filter:blur(4px)}
-    .slide h2{margin:0 0 6px 0;color:var(--choco-1)}
-    .slide p{margin:0 0 12px 0;color:var(--muted)}
-    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--choco-1);color:white;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(75,46,43,0.18)}
-    .slide img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+.socialSvg {
+  width: 17px;
+}
 
-    .carousel-controls{position:absolute;left:16px;right:16px;bottom:12px;display:flex;justify-content:center;gap:8px}
-    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer}
-    .dot.active{background:var(--accent);transform:scale(1.15)}
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
 
-    /* Filters & Search */
-    .controls{display:flex;gap:12px;align-items:center;margin:14px 0;flex-wrap: wrap;}
-    .search{flex:1 1 100%; max-width:400px;display:flex;background:#fff;border-radius:12px;padding:8px 12px;align-items:center;box-shadow:var(--card-shadow);margin-bottom:12px;}
-    .search input{border:0;outline:0;font-size:14px;padding:8px;width:100%;background:transparent}
-    .filters{display:flex;gap:8px;flex-wrap: wrap;}
-    .chip{padding:8px 12px;border-radius:999px;background:linear-gradient(180deg,#fff,#fffefe);border:1px solid #f0e6e3;font-weight:600;cursor:pointer;white-space: nowrap;}
-    .chip.active{background:var(--accent);color:white;border:none}
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
 
-    /* Product grid */
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    @media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:420px){.grid{grid-template-columns:1fr}}
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
 
-    .card{background:white;border-radius:12px;padding:12px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:10px;transition:transform .18s ease,box-shadow .18s ease;cursor: default;}
-    .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(75,46,43,0.12)}
-    .thumb{width:100%;height:160px;border-radius:10px;object-fit:cover}
-    .meta{display:flex;justify-content:space-between;align-items:center}
-    .price{font-weight:800;color:var(--choco-1)}
-    .muted{color:var(--muted);font-size:13px}
-    .badge{background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 8px;border-radius:8px;font-size:12px;font-weight:700}
-    .desc{font-size:13px;color:var(--muted);min-height:36px}
-    .actions{display:flex;gap:8px;flex-wrap: wrap;}
-    .btn{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:700;flex-grow: 1; min-width: 90px;}
-    .btn.ghost{background:transparent;border:1px solid #eee}
-    .btn.primary{background:var(--choco-1);color:white;white-space: nowrap;}
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* Modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(11,7,6,0.5);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000;}
-    .modal{background:white;border-radius:12px;max-width:900px;width:100%;padding:18px;box-shadow:0 18px 60px rgba(0,0,0,0.3);display:grid;grid-template-columns:1fr 1fr;gap:18px;position: relative;}
-    .modal img{width:100%;height:320px;object-fit:cover;border-radius:10px}
-    .modal h3{margin:0}
-    .close{position:absolute;right:18px;top:12px;border:0;background:transparent;font-size:24px;color:var(--choco-1);cursor:pointer;}
+header{
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:64px;height:64px;border-radius:12px;
+  background:linear-gradient(135deg,var(--choco-1),var(--choco-2));
+  display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
+  box-shadow:var(--card-shadow);
+  transition:transform 0.3s ease;
+}
+.logo:hover{
+  transform:rotate(3deg) scale(1.05);
+}
+h1{margin:0;font-size:20px}
+p.lead{margin:0;color:var(--muted);font-size:13px}
 
-    /* micro interactions */
-    .ribbon{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 10px;border-radius:8px;font-weight:700;z-index:1;}
+/* Banner / Carousel */
+.hero{
+  margin:18px 0;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--card-shadow);
+}
+.carousel{
+  display:flex;transition:transform .6s cubic-bezier(.2,.9,.2,1);width:300%;
+}
+.slide{
+  min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px;align-items:center;
+  background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(0,0,0,0));
+}
+.slide .promo{
+  padding:14px 20px;border-radius:14px;
+  background:var(--glass);
+  backdrop-filter:blur(12px) saturate(160%);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+.slide h2{margin:0 0 6px 0;color:var(--choco-1)}
+.slide p{margin:0 0 12px 0;color:var(--muted)}
+.cta{
+  display:inline-block;padding:10px 16px;border-radius:10px;
+  background:linear-gradient(135deg,var(--choco-1),var(--choco-2));
+  color:white;text-decoration:none;font-weight:600;
+  box-shadow:0 6px 18px rgba(75,46,43,0.18);
+  transition:all 0.25s ease;
+}
+.cta:hover{
+  transform:translateY(-3px) scale(1.03);
+  background:linear-gradient(135deg,var(--choco-2),var(--choco-1));
+}
+.slide img{
+  width:100%;height:220px;object-fit:cover;border-radius:12px;
+  transition:transform 0.3s ease;
+}
+.slide img:hover{
+  transform:scale(1.05);
+}
 
-    /* small helpers */
-    .row{display:flex;gap:12px;align-items:center}
-    
-    #cartWidget {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      padding: 12px;
-      width: 260px;
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 998;
-    }
-    #cartWidget img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    #cartWidget .item {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    #cartWidget .title {
-      font-weight: 700;
-      font-size: 14px;
-    }
-    #cartWidget .price {
-      font-size: 13px;
-      color: var(--choco-1);
-    }
+.carousel-controls{
+  position:absolute;left:16px;right:16px;bottom:12px;display:flex;justify-content:center;gap:8px
+}
+.dot{
+  width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;
+  transition:all 0.2s ease;
+}
+.dot.active{background:var(--accent);transform:scale(1.25)}
+.dot:hover{transform:scale(1.2)}
 
-    /* Botão flutuante do WhatsApp */
-    #whatsappBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 50px;
-      font-weight: bold;
-      font-size: 14px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      z-index: 999;
-      transition: transform 0.2s ease;
-    }
-    #whatsappBtn:hover {
-      transform: scale(1.05);
-    }
-    #whatsappBtn svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-    }
+/* Filters & Search */
+.controls{display:flex;gap:12px;align-items:center;margin:14px 0;flex-wrap: wrap;}
+.search{
+  flex:1 1 100%; max-width:400px;display:flex;background:#fff;border-radius:12px;padding:8px 12px;
+  align-items:center;box-shadow:var(--card-shadow);margin-bottom:12px;
+}
+.search input{border:0;outline:0;font-size:14px;padding:8px;width:100%;background:transparent}
+.filters{display:flex;gap:8px;flex-wrap: wrap;}
+.chip{
+  padding:8px 12px;border-radius:999px;
+  background:linear-gradient(180deg,#fff,#fffefe);
+  border:1px solid #f0e6e3;font-weight:600;cursor:pointer;white-space: nowrap;
+  transition:all 0.2s ease;
+}
+.chip:hover{
+  background:linear-gradient(90deg,var(--accent),#b55f3c);
+  color:white;
+  border:none;
+}
+.chip.active{
+  background:var(--accent);
+  color:white;
+  border:none;
+}
 
-    /* Toast Container */
-    #toast-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10000;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+/* Product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
 
-    /* Toast */
-    .toast {
-      background-color: #6b3e26; /* marrom chocolate escuro */
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(13, 22, 109, 0.8);
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      animation: slideIn 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
-      min-width: 220px;
-    }
+.card{
+  background:white;border-radius:12px;padding:12px;box-shadow:var(--card-shadow);
+  display:flex;flex-direction:column;gap:10px;transition:transform .25s ease,box-shadow .25s ease;cursor: default;
+  animation:fadeUp 0.5s ease forwards;
+}
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 18px 40px rgba(75,46,43,0.15);
+}
+.thumb{
+  width:100%;height:160px;border-radius:10px;object-fit:cover;
+  transition:transform 0.3s ease;
+}
+.card:hover .thumb{
+  transform:scale(1.05);
+}
+.meta{display:flex;justify-content:space-between;align-items:center}
+.price{font-weight:800;color:var(--choco-1)}
+.muted{color:var(--muted);font-size:13px}
+.badge{
+  background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 8px;border-radius:8px;font-size:12px;font-weight:700
+}
+.desc{font-size:13px;color:var(--muted);min-height:36px}
+.actions{display:flex;gap:8px;flex-wrap: wrap;}
+.btn{
+  padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:700;flex-grow: 1; min-width: 90px;
+  transition:all 0.25s ease;
+}
+.btn.ghost{
+  background:transparent;border:1px solid #eee;
+  backdrop-filter:blur(6px);
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--choco-1),var(--choco-2));color:white;white-space: nowrap;
+}
+.btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
-    /* Ícone no toast */
-    .toast i {
-      margin-right: 8px;
-      font-size: 18px;
-      line-height: 1;
-    }
+footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* Animações */
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(11,7,6,0.5);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000;}
+.modal{
+  background:white;border-radius:12px;max-width:900px;width:100%;padding:18px;
+  box-shadow:0 18px 60px rgba(0,0,0,0.3);display:grid;grid-template-columns:1fr 1fr;gap:18px;position: relative;
+}
+.modal img{width:100%;height:320px;object-fit:cover;border-radius:10px}
+.modal h3{margin:0}
+.close{
+  position:absolute;right:18px;top:12px;border:0;background:transparent;font-size:24px;color:var(--choco-1);cursor:pointer;
+  transition:transform 0.25s ease;
+}
+.close:hover{
+  transform:rotate(90deg);
+}
 
-    @keyframes fadeOut {
-      to { opacity: 0; transform: translateX(100%); }
-    }
+/* micro interactions */
+.ribbon{
+  position:absolute;right:18px;top:18px;background:linear-gradient(90deg,var(--accent),#b55f3c);color:white;padding:6px 10px;border-radius:8px;font-weight:700;z-index:1;
+}
+
+/* small helpers */
+.row{display:flex;gap:12px;align-items:center}
+
+#cartWidget {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  padding: 12px;
+  width: 260px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 998;
+}
+#cartWidget img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+#cartWidget .item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#cartWidget .title {
+  font-weight: 700;
+  font-size: 14px;
+}
+#cartWidget .price {
+  font-size: 13px;
+  color: var(--choco-1);
+}
+
+/* Botão flutuante do WhatsApp */
+#whatsappBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: all 0.25s ease;
+}
+#whatsappBtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.3);
+}
+#whatsappBtn svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+/* Toast Container */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Toast */
+.toast {
+  background-color: #6b3e26;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 22, 109, 0.8);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  animation: slideIn 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+  min-width: 220px;
+  border-left: 4px solid var(--accent);
+}
+.toast i {
+  margin-right: 8px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Animações */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(100%); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
   </style>
 </head>
@@ -209,12 +367,20 @@
         <div class="logo">CS</div>
         <div>
           <h1>Catálogo — Cacau Show</h1>
-          <p class="lead">Trufas | Tabletes 100g / 20g | Biscoiteria — Apresentação profissional.</p>
+          <p class="lead">Trufas | Tabletes 100g / 20g | Biscoiteria.</p>
         </div>
       </div>
       <div class="row">
         <div class="muted">Catálogo digital — Videira SC</div>
       </div>
+      <!-- From Uiverse.io by alafshate --> 
+<div class="card1">
+  <a class="socialContainer containerOne" href="https://www.instagram.com/lojacacaushowvideira.sc" target="_blank">
+    <svg viewBox="0 0 16 16" class="socialSvg instagramSvg"> <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path> </svg>
+  </a>
+</div>             
+
+
     </header>
 
     <div id="cartWidget">
