@@ -484,6 +484,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
         <button class="chip" data-category="life">Linha Lifestyle</button>
         <button class="chip" data-category="servico">Serviços e Sobremesas</button>
         <button class="chip" data-category="cestas">Cestas</button>
+        <button class="chip" data-category="Panettones">Panettones</button>
       </div>
     </div>
 
@@ -522,6 +523,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Trufa Tradicional é perfeita para a ocasião, com sua textura macia e recheio cremoso, irá encantar o paladar.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0a5a2195/large/1002633_4.png",
+      tag: "promo",
     },{
       id: 2,
       nome: "Trufa mezzo | 30G",
@@ -1648,11 +1650,11 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
     },
      {
       id: 140, 
-      nome: "Tablete whey chocolate ao leite| 30g",
+      nome: "Tablete Harry Potter| 54g",
       categoria: "tabletes 20g",
-      descricao: "Suplemento alimentar em barra, massa ao leite com adição de cafeína que auxilia no aumento do estado de alerta e na melhora da concentração e energia.",
-      preco: 9.99,
-      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw29bcec9b/large/1003525_1.png",
+      descricao: "Experimente o Tablete Harry Potter ao Leite e Branco da Cacau Show, uma deliciosa combinação de chocolate ao leite e branco. Se delicie!",
+      preco: 14.99,
+      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb9f2db3a/large/1003239_1.png",
     },
      {
       id: 141, 
@@ -1779,7 +1781,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       nome: "Kit luva e descanso de panela Off white | CS",
       categoria: "life",
       descricao: "Kit Utensílios Off White Bendito Cacao. Praticidade e elegância com inspiração no cacau.",
-      preco: 29.99,
+      preco: 54.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw4d4f822b/large/2005554_1.png",
     },
      {
@@ -1835,7 +1837,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       nome: "Kit utensílios terracota| CS",
       categoria: "life",
       descricao: "Kit Utensílios Terracota Bendito Cacao. Praticidade e elegância com inspiração no cacau",
-      preco: 29.99,
+      preco: 59.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw73bfb84b/large/2005560_1.png",
     },
      {
@@ -2118,10 +2120,27 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma seleção refinada para os verdadeiros apreciadores de chocolate e momentos especiais. A combinação perfeita entre intensidade, delicadeza e sofisticação.",
       preco: 193.00,
       imagem: "foto2.jpg",
+    },
+     {
+      id: 199,
+      nome: "Panettone gotas ao leite| 450g",
+      categoria: "Panettones",
+      descricao: "O clássico natalino com o irresistível sabor Cacau Show! Massa macia e fofinha, preparada com todo carinho, recheada com generosas gotas de chocolate ao leite que derretem a cada fatia.",
+      preco: 44.99,
+      imagem: "foto4.jpg",
+    },
+     {
+      id: 200,
+      nome: "Panettone frutas| 450g",
+      categoria: "Panettones",
+      descricao: "O sabor tradicional do Natal em sua forma mais clássica. Massa fofinha e macia, preparada com cuidado especial, enriquecida com pedaços selecionados de frutas cristalizadas e uvas-passas.",
+      preco: 44.99,
+      imagem: "foto5.jpg",
     }
 
 
   ];
+  
   const grid = document.getElementById('grid');
   const searchInput = document.getElementById('searchInput');
   const filterChips = document.querySelectorAll('.filters .chip');
