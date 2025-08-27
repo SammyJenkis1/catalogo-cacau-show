@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Catálogo — Cacau Show</title>
+  <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/f0/2d/44/f02d448cb0387604f90b15906a8729dc.jpg">
   <meta name="description" content="Catálogo profissional de produtos Cacau Show: trufas, tabletes 100g/20g e biscoiteria. Interface moderna, responsiva e com banner promocional rotativo." />
+  
   <style>
     :root{
   --bg:#fff8f4;
@@ -110,7 +112,7 @@ body{
 }
 
 .cadastro-btn:hover {
-  background: linear-gradient(90deg, #d4a373, #6b3e2e);
+  background: linear-gradient(90deg, #410b0b, #6b3e2e);
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
@@ -222,9 +224,20 @@ p.lead{margin:0;color:var(--muted);font-size:13px}
   box-shadow:0 18px 40px rgba(75,46,43,0.15);
 }
 .thumb{
-  width:100%;height:160px;border-radius:10px;object-fit:cover;
-  transition:transform 0.3s ease;
+  width: 100%;
+  height: auto; /* altura automática */
+  max-height: 200px; /* limite para não ficar gigante */
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
+
+@media (max-width: 600px) {
+  .thumb {
+    max-height: 160px; /* menor no celular */
+  }
+}
+
 .card:hover .thumb{
   transform:scale(1.05);
 }
@@ -354,7 +367,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 
 /* Toast */
 .toast {
-  background-color: #6b3e26;
+  background-color: #6b2626;
   color: #fff;
   padding: 12px 18px;
   border-radius: 12px;
@@ -2200,6 +2213,22 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma experiência cremosa! LaCreme kids ao leite entrega tudo isso e muito mais.",
       preco: 9.99,
       imagem: "https://gkpb.com.br/wp-content/uploads/2020/12/cacau-show-gelateria-gelato-la-creme-kids-geek-publicitario.jpg",
+    },
+     {
+      id: 209,
+      nome: "Água sem gás| 510ml",
+      categoria: "servico",
+      descricao: "Água sem gás fonte Aqua fest",
+      preco: 4.50,
+      imagem: "foto6.jpg",
+    },
+     {
+      id: 210,
+      nome: "Água com gás| 510ml",
+      categoria: "servico",
+      descricao: "Água com gás fonte Aqua fest",
+      preco: 5.00,
+      imagem: "foto7.jpg",
     }
 
 
@@ -2228,6 +2257,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       const categoryMatch = filter === 'todos' || p.categoria === filter;
       const searchMatch = p.nome.toLowerCase().includes(search.toLowerCase());
       return categoryMatch && searchMatch;
+      
     });
 
     if(filtered.length === 0){
@@ -2254,6 +2284,18 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       grid.appendChild(card);
     });
   }
+const botoes = document.querySelectorAll('.btn-adicionar');
+
+botoes.forEach((botao, index) => {
+  // Remove listener anterior só por precaução
+  botao.replaceWith(botao.cloneNode(true)); 
+});
+
+botoes.forEach((botao, index) => {
+  botao.addEventListener('click', () => {
+    adicionarAoCarrinho(produtos[index]);
+  });
+});
 
   // Filtrar produtos
   filterChips.forEach(chip => {
@@ -2302,26 +2344,44 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
   }
 
   function renderCart() {
-    if(cart.length === 0){
-      cartWidget.style.display = 'none';
-      return;
-    }
-    cartWidget.style.display = 'flex';
-    cartItemsContainer.innerHTML = '';
-    cart.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'item';
-      div.innerHTML = `
-        <img src="${item.imagem}" alt="${item.nome}">
-        <div>
-          <div class="title">${item.nome} x${item.qty}</div>
-          <div class="price">R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}</div>
-        </div>
-      `;
-      cartItemsContainer.appendChild(div);
-    });
+  if(cart.length === 0){
+    cartWidget.style.display = 'none';
+    return;
   }
-
+  cartWidget.style.display = 'flex';
+  cartItemsContainer.innerHTML = '';
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <img src="${item.imagem}" alt="${item.nome}">
+      <div>
+        <div class="title">${item.nome} x${item.qty}</div>
+        <div class="price">R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}</div>
+      </div>
+      <button class="remove-btn" data-id="${item.id}" aria-label="Remover ${item.nome}">✖</button>
+    `;
+    cartItemsContainer.appendChild(div);
+  });
+}
+function removeFromCart(id) {
+  const itemIndex = cart.findIndex(item => item.id === id);
+  if(itemIndex !== -1) {
+    if(cart[itemIndex].qty > 1) {
+      cart[itemIndex].qty--; // diminui a quantidade
+    } else {
+      cart.splice(itemIndex, 1); // remove do array
+    }
+    renderCart();
+  }
+}
+cartItemsContainer.addEventListener('click', e => {
+  const btn = e.target.closest('.remove-btn');
+  if(!btn) return;
+  const id = Number(btn.dataset.id);
+  removeFromCart(id);
+  showToast("Produto removido do carrinho.");
+});
   // Toast (alerta discreto)
   const toastContainer = document.getElementById('toast-container');
 
