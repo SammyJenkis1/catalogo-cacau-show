@@ -223,20 +223,65 @@ p.lead{margin:0;color:var(--muted);font-size:13px}
   transform:translateY(-6px) scale(1.02);
   box-shadow:0 18px 40px rgba(75,46,43,0.15);
 }
-.thumb{
+/* ✅ Imagens dos cards */
+.thumb {
   width: 100%;
-  height: auto; /* altura automática */
-  max-height: 200px; /* limite para não ficar gigante */
+  height: auto;             /* altura automática */
+  max-height: 200px;        /* limite no desktop */
   border-radius: 10px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+.card:hover .thumb {
+  transform: scale(1.05);
+}
 
 @media (max-width: 600px) {
   .thumb {
-    max-height: 160px; /* menor no celular */
+    max-height: 150px;      /* menor no celular */
   }
 }
+
+/* ✅ Imagens do banner/carrossel */
+.slide img {
+  width: 100%;
+  height: auto;             /* deixa responsivo */
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.slide img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .slide img {
+    max-height: 160px;
+  }
+}
+
+/* ✅ Imagem do modal */
+.modal {
+  grid-template-columns: 1fr 1fr;
+}
+.modal img {
+  width: 100%;
+  height: auto;             /* remove altura fixa */
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .modal {
+    grid-template-columns: 1fr; /* no celular, empilha */
+  }
+  .modal img {
+    max-height: 200px;
+  }
+}
+
 
 .card:hover .thumb{
   transform:scale(1.05);
