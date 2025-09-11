@@ -442,6 +442,23 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.card.esgotado {
+  opacity: 0.6;
+  position: relative;
+}
+
+.card.esgotado::after {
+  content: "Esgotado";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #a00;
+  color: white;
+  padding: 12px 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 
   </style>
@@ -583,7 +600,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Trufa Tradicional é perfeita para a ocasião, com sua textura macia e recheio cremoso, irá encantar o paladar.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0a5a2195/large/1002633_4.png",
-      tag: "promo",
+      esgotado:false,
     },{
       id: 2,
       nome: "Trufa mezzo | 30G",
@@ -697,6 +714,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "trufa de chocolate branco com recheio de avelã branco. Cremosa e encantadora!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw07cd2424/large/1003738_1.png",
+      esgotado:true,
     } ,
      {
       id: 16,
@@ -793,6 +811,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete laCreme de Chocolate Branco, suave e cremoso",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw30c5765d/large/1002866_1.png",
+      esgotado:true,
     },
      {
       id: 28,
@@ -801,6 +820,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Delicioso tablete de chocolate ao leite laCreme com recheio cremoso de leite",
       preco: 22.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwbeddd6e9/large/1003698_1.png",
+      esgotado:true,
     },
      {
       id: 29, 
@@ -809,6 +829,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete laCreme de Chocolate Mezzo, que combina o sabor suave do chocolate ao leite com o delicioso chocolate branco da Cacau Show",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw07201522/large/1003107_1.png",
+      esgotado:true,
     },
      {
       id: 30,
@@ -825,6 +846,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete Cookies'N Cream de Chocolate Branco com pedaços crocantes de cookies.",
       preco: 16.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwcda9b58e/large/1002867_1.png",
+      esgotado:true,
     },
      {
       id: 32,
@@ -833,6 +855,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete de Chocolate ao Leite Brigadeiro, uma combinação irresistível de chocolate ao leite e recheio cremoso de brigadeiro.",
       preco: 16.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd8b06563/large/1002960_1.png",
+      esgotado:true,
     },
      {
       id: 33,
@@ -860,11 +883,12 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
     },
      {
       id: 36,
-      nome: "Tablete LaNut pistache  | 130g",
+      nome: "Tablete LaNut pistache Dubai  | 130g",
       categoria: "tabletes 100g",
       descricao: "Chocolate ao leite com creme de pistache e crocante de Kataif. Uma delícia que vai encantar o paladar!  ",
       preco: 32.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw633a1378/large/1003636_1.png",
+      esgotado:true,
     },
      {
       id: 37,
@@ -913,6 +937,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "O Tablete Dreams Mil-Folhas é a combinação perfeita de chocolate ao leite e a crocância de Mil-Folhas para momentos especiais",
       preco: 22.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwf4390381/large/1002880_1.png",
+      esgotado:true,
     },
      {
       id: 42,
@@ -921,6 +946,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Conheça o tablete crocante com recheio cremoso de avelã. Uma experiência sofisticada e irresistível! Ideal para te acompanhar no dia a dia. lé",
       preco: 22.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb16698d7/large/1002881_1.png",
+      esgotado:true,
     },
      {
       id: 43,
@@ -969,6 +995,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Chocolate ao leite cremoso sem lactose, perfeito para quem não quer abrir mão do sabor!",
       preco: 24.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd9c800d0/large/1002820_1.png",
+      esgotado:true,
     },
      {
       id: 49,
@@ -1161,6 +1188,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Descubra o Wafer Biscoiteria Limão da Cacau Show: crocante por fora, com um recheio suave de limão. Um sabor refrescante para momentos de prazer!",
       preco: 15.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw6634efa9/large/1003326_1.png",
+      esgotado:true,
     },
      {
       id: 73,
@@ -1201,6 +1229,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Os Cookies de Limão da Cacau Show oferecem sabor refrescante e crocante. Perfeitos para lanches, cada mordida traz um toque cítrico e delicioso!",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw47c1647c/large/1003343_1.png",
+      esgotado:true,
     },
      {
       id: 78,
@@ -1241,6 +1270,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Biscoito crocante e adocicado, perfeito para lanches ou acompanhamentos, uma ótima opção para se ter durante o dia!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwe864516d/large/1003112_1.png",
+      esgotado:true,
     },
      {
       id: 83,
@@ -1281,6 +1311,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma combinação irresistível de sabores para momentos especiais!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw302ef194/large/2002357_3.png",
+      esgotado:true,
     },
      {
       id: 88,
@@ -1289,6 +1320,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "O Wafer Bytes Avelã tem camadas crocantes de wafer com recheio cremoso de avelã. Tubinhos deliciosos e práticos para qualquer momento do dia!!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwa37cbd66/large/2000014_1.png",
+      esgotado:true,
     },
      {
       id: 89,
@@ -1313,6 +1345,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma combinação perfeita de amêndoas crocantes e chocolate intenso, ideal para quem busca sofisticação e sabor.",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw1fe06ccd/large/1001697_1.png",
+      esgotado:true,
     },
      {
       id: 92,
@@ -1425,6 +1458,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Com uma seleção especial de bombons que combinam texturas e recheios irresistíveis.",
       preco: 99.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw58114aac/large/1001680_1.png",
+      esgotado:true,
     },
      {
       id: 106, 
@@ -1465,6 +1499,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Conheça o Cofre Cremilda Trufas laCreme Kids ao Leite da Cacau Show, trufas deliciosas em um lindo cofrinho da nossa vaquinha Cremilda, um encanto.",
       preco: 49.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw1799e887/large/1001698_2.png",
+      esgotado:true,
     },
      {
       id: 111, 
@@ -1473,6 +1508,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Conheça a Caixa de Trufas laCreme ao Leite, sofisticada e de sabor marcante com as trufas laCreme, perfeita para presentear e transformar qualquer momento em celebrações..",
       preco: 79.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw6ca5cf08/large/1000690_1.png",
+      esgotado:true,
     },
      {
       id: 112, 
@@ -1481,6 +1517,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma combinação irresistível de sabores em cada trufa, ideal para se deliciar durante o dia ou para presentear!",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwea7e6aab/large/1000624_1.png",
+      esgotado:true,
     },
      {
       id: 113, 
@@ -1489,6 +1526,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Oferece uma deliciosa variedade de sabores em uma embalagem sofisticada, ideal para presentear ou saborear!",
       preco: 34.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd2fd5330/large/1002768_1.png",
+      esgotado:true,
     },
      {
       id: 113, 
@@ -1497,6 +1535,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Desfrute da sofisticação dos sabores com a Caixa de Bombons Gourmet Drinks, que combina o melhor do chocolate com o toque refinado de drinks famosos.",
       preco: 59.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw08fc29b6/large/1002548_1.png",
+      esgotado:true,
     },
      {
       id: 114, 
@@ -1505,6 +1544,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Deliciosos bombons recheados em uma embalagem elegante. Perfeita para presentear ou saborear em momentos especiais..",
       preco: 54.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd14fc96b/large/1003333_1.png",
+      esgotado:true,
     },
      {
       id: 115, 
@@ -1521,6 +1561,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Variados sabores dos deliciosos bombons laCreme, de chocolate ao leite e branco",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3ab42ae7/large/1003102_1.png",
+      esgotado:true,
     },
      {
       id: 117, 
@@ -1538,6 +1579,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "A Caixa de Bombons Mini Show LaNut tem bombons de chocolate ao leite com recheio cremoso de avelã. Sabor clássico e refinado!",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw2666003b/large/1002631_1.png",
+      esgotado:true,
     }
 ,
      {
@@ -1547,6 +1589,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Saboreie os deliciosos bombons ao leite da Cacau Show com a Caixa de Bombons Mini Show laCreme ao Leite, ideal para presentear ou se deliciar durante o dia!.",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd5cd9254/large/1002628_1.png",
+      esgotado:true,
     },
      {
       id: 120, 
@@ -1555,6 +1598,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Combina a cremosidade do pistache com chocolates ao leite e branco, oferecendo uma explosão de sabores!",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3dcda115/large/1003229_1.png",
+      esgotado:true,
     },
      {
       id: 121, 
@@ -1611,6 +1655,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Drageados crocantes com centro de cookie, recheio cremoso de leite, cobertura de chocolate branco e toque de leite em pó.",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwa826ce0e/large/1003598_3.png",
+      esgotado:true,
     },
      {
       id: 128, 
@@ -1675,6 +1720,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Suplemento alimentar em barra, massa 70% com adição de cafeína que auxilia no aumento do estado de alerta e na melhora da concentração e foco!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw4c8e0f59/large/1003529_1.png",
+      esgotado:true,
     },
      {
       id: 136, 
@@ -1683,6 +1729,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Suplemento alimentar em barra, massa 70% com peptídeos bioativos de colágeno hidrolisado que auxiliam na manutenção da saúde da pele.",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw39a8db90/large/1003527_1.png",
+      esgotado:true,
     },
      {
       id: 137, 
@@ -1693,20 +1740,13 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwcaa4782f/large/1003524_1.png",
     },
      {
-      id: 138, 
-      nome: "Tablete saúde pele| 30g",
-      categoria: "tabletes 20g",
-      descricao: "Suplemento alimentar em barra, massa 70% com peptídeos bioativos de colágeno hidrolisado que auxiliam na manutenção da saúde da pele.",
-      preco: 9.99,
-      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw39a8db90/large/1003527_1.png",
-    },
-     {
       id: 139, 
       nome: "Tablete whey chocolate ao leite| 30g",
       categoria: "tabletes 20g",
       descricao: "Tablete Whey Choc ao Leite: sabor, nutrição e praticidade com proteína. Ideal para sua rotina ativa!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwa806863d/large/1003526_1t.png",
+      esgotado:true,
     },
      {
       id: 140, 
@@ -1747,6 +1787,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Delicie-se com o Tablete Miau Zero Lactose 70g da Cacau Show, nosso irresistível chocolate para quem possui restrições à lactose, no formato Língua de Gato!.",
       preco: 21.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwe52be8fa/large/1002822_1.png",
+      esgotado:true,
     },
      {
       id: 145, 
@@ -1763,6 +1804,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Conheça o Chocolate Miau Mezzo 70g da Cacau Show, o melhor dos dois mundos: chocolate ao leite e branco. A combinação perfeita!",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw38ae7931/large/1003285_1.png",
+      esgotado:true,
     },
      {
       id: 147, 
@@ -1787,6 +1829,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Chocolate ao leite com recheio de maracujá em um tablete irresistível, o equilíbrio perfeito para encantar seu paladar.",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwf69f3e32/large/1003657_1.png",
+      esgotado:true,
     },
      {
       id: 150, 
@@ -1811,6 +1854,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Espumante Moscatel Cacau Show",
       preco: 34.99,
       imagem: "https://s3-sa-east-1.amazonaws.com/deliveryon-uploads/products/cacaushowvassouras/542_62f672bb25879.png",
+      esgotado:true,
     },
      {
       id: 153,
@@ -1819,6 +1863,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tabletes de chocolate ao leite e branco em uma caixa presenteável, perfeitos para encantar.",
       preco: 34.99,
       imagem: "https://http2.mlstatic.com/D_NQ_NP_795061-MLB71334591002_082023-O.webp",
+      esgotado:true,
     },
      {
       id: 154,
@@ -1854,11 +1899,12 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
     },
      {
       id: 158,
-      nome: "Kit porta copos| CS",
+      nome: "Kit 4 porta copos| CS",
       categoria: "life",
       descricao: "Kit 4 Porta-Copos Off White Bendito Cacao. Sofisticação e leveza para servir com estilo.",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw7aa4950d/large/2005549_1.png",
+      esgotado:true,
     },
      {
       id: 159,
@@ -1891,6 +1937,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Kit 4 Porta-Copos Verde Bendito Cacao. Proteção e estilo para sua mesa em qualquer ocasião.",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw7fcf5eeb/large/2005552_1.png",
+      esgotado:true,
     },
      {
       id: 163,
@@ -1899,6 +1946,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Kit Utensílios Terracota Bendito Cacao. Praticidade e elegância com inspiração no cacau",
       preco: 59.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw73bfb84b/large/2005560_1.png",
+      esgotado:true,
     },
      {
       id: 164,
@@ -1915,6 +1963,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Espátula Terracota Bendito Cacao. Sofisticação e praticidade para servir com charme.",
       preco: 34.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwe6d17225/large/2005571_1.png",
+      esgotado:true,
     },
      {
       id: 166,
@@ -1923,6 +1972,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Kit 4 Porta-Copos Terracota Bendito Cacao. Proteção com charme e aconchego à mesa.",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwcc8340d4/large/2005551_1.png",
+      esgotado:true,
     },
      {
       id: 167,
@@ -1971,6 +2021,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Café expresso decaf.",
       preco: 8.90,
       imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRITJgRtn6XabAiwFBqACc-Ux9DWT3JwG5R8w&s",
+      esgotado:true,
     },
      {
       id: 173,
@@ -2003,6 +2054,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Cappuccino cacau show",
       preco: 9.00,
       imagem: "https://mercafefaststore.vtexassets.com/arquivos/ids/552387/CAPPUCCINO-CLASSIC.png?v=638844910036330000",
+      esgotado:true,  
     }
 ,
      {
@@ -2084,6 +2136,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Bombons sortidos com recheios de café e doce de leite, cobertos por chocolate ao leite e branco. Uma combinação envolvente",
       preco: 24.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw97af007e/large/1003717_1.png",
+      esgotado:true,
     },
      {
       id: 187,
@@ -2100,6 +2153,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Desfrute do Tablete laCreme de Chocolate Branco, a combinação perfeita entre suavidade e cremosidade. Um delicioso chocolate branco laCreme, irresistível!",
       preco: 1.29,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw784b7840/large/1002946_1.png",
+      esgotado:true,
     },
      {
       id: 189,
@@ -2116,6 +2170,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "O Tablete de Chocolate ao Leite Café combina o sabor cremoso do chocolate ao leite com um toque de café, criando uma experiência deliciosa e marcante.",
       preco: 1.29,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3dbdd37d/large/1002964_1.png",
+      esgotado:true,
     },
      {
       id: 191,
@@ -2124,6 +2179,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma combinação perfeita de intensidade e cremosidade, ideal para momentos de prazer a qualquer hora do dia.",
       preco: 1.29,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw909f4a1f/large/1003059_1.png",
+      esgotado:true,
     },
      {
       id: 192,
@@ -2140,6 +2196,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete Bendito Cacao de Chocolate 85% Cacau, ótima escolha para quem ama sabores intensos. Porção de 5g para uma degustação rápida e sofisticada!",
       preco: 1.29,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw1262b46a/large/1002945_1.png",
+      esgotado:true,
     },
      {
       id: 194,
@@ -2260,9 +2317,38 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma experiência cremosa! LaCreme kids ao leite entrega tudo isso e muito mais.",
       preco: 9.99,
       imagem: "https://gkpb.com.br/wp-content/uploads/2020/12/cacau-show-gelateria-gelato-la-creme-kids-geek-publicitario.jpg",
+      esgotado:true,
     },
+    ,
      {
       id: 209,
+      nome: "Sorvete LaCreme kids| 70g",
+      categoria: "servico",
+      descricao: "Uma experiência cremosa! LaCreme kids ao leite entrega tudo isso e muito mais.",
+      preco: 16.99,
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8AJT8LEOinF-X_NvHIkZ3WmTSl6uuxJpQg&s",
+    },
+    ,
+     {
+      id: 210,
+      nome: "Sorvete biscoiteria| 510ml",
+      categoria: "servico",
+      descricao: "Uma combinação de sorvete e casquinha de chocolate ao leite com pedacinhos de biscoito crocante! Tá bem gostoso, e ainda dá pra ganhar Cacaus",
+      preco: 16.99,
+      imagem: "fotosorvete.jpg",
+    },
+    ,
+     {
+      id: 211,
+      nome: "Sorvete LaCreme mezzo| 510ml",
+      categoria: "servico",
+      descricao: "O Sorvete laCreme Mezzo combina os sabores de chocolate ao leite e branco com uma textura cremosa e irresistível!",
+      preco: 16.99,
+      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw292f9d0b/large/1002460_1.png",
+      esgotado:true,
+    },
+     {
+      id: 212,
       nome: "Água sem gás| 510ml",
       categoria: "servico",
       descricao: "Água sem gás fonte Aqua fest",
@@ -2270,13 +2356,14 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       imagem: "foto6.jpg",
     },
      {
-      id: 210,
+      id: 213,
       nome: "Água com gás| 510ml",
       categoria: "servico",
       descricao: "Água com gás fonte Aqua fest",
       preco: 5.00,
       imagem: "foto7.jpg",
     }
+
 
 
   ];
@@ -2298,39 +2385,46 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
   let cart = [];
 
   // Renderizar cards
-  function renderProdutos(filter = 'todos', search = '') {
-    grid.innerHTML = '';
-    let filtered = produtos.filter(p => {
-      const categoryMatch = filter === 'todos' || p.categoria === filter;
-      const searchMatch = p.nome.toLowerCase().includes(search.toLowerCase());
-      return categoryMatch && searchMatch;
-      
-    });
+  // Renderizar cards
+function renderProdutos(filter = 'todos', search = '') {
+  grid.innerHTML = '';
+  let filtered = produtos.filter(p => {
+    const categoryMatch = filter === 'todos' || p.categoria === filter;
+    const searchMatch = p.nome.toLowerCase().includes(search.toLowerCase());
+    return categoryMatch && searchMatch;
+  });
 
-    if(filtered.length === 0){
-      grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--muted); font-weight:700;">Nenhum produto encontrado.</p>`;
-      return;
-    }
-
-    filtered.forEach(p => {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.setAttribute('role','listitem');
-      card.innerHTML = `
-        <img class="thumb" src="${p.imagem}" alt="${p.nome}">
-        <div class="meta">
-          <h4>${p.nome}</h4>
-          <span class="price">R$ ${p.preco.toFixed(2).replace('.',',')}</span>
-        </div>
-        <p class="desc">${p.descricao}</p>
-        <div class="actions">
-          <button class="btn primary" data-id="${p.id}" aria-label="Comprar ${p.nome}">Comprar</button>
-          <button class="btn ghost" data-id="${p.id}" aria-label="Mais detalhes de ${p.nome}">Detalhes</button>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
+  if(filtered.length === 0){
+    grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--muted); font-weight:700;">Nenhum produto encontrado.</p>`;
+    return;
   }
+
+  filtered.forEach(p => {
+    const card = document.createElement('article');
+    card.className = 'card';
+    if(p.esgotado) card.classList.add('esgotado'); // ✅ adiciona classe se estiver esgotado
+    card.setAttribute('role','listitem');
+
+    card.innerHTML = `
+      <img class="thumb" src="${p.imagem}" alt="${p.nome}">
+      <div class="meta">
+        <h4>${p.nome}</h4>
+        <span class="price">R$ ${p.preco.toFixed(2).replace('.',',')}</span>
+      </div>
+      <p class="desc">${p.descricao}</p>
+      <div class="actions">
+        ${
+          p.esgotado 
+          ? `<span class="soldout-label">Esgotado</span>` 
+          : `<button class="btn primary" data-id="${p.id}" aria-label="Comprar ${p.nome}">Comprar</button>`
+        }
+        <button class="btn ghost" data-id="${p.id}" aria-label="Mais detalhes de ${p.nome}">Detalhes</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
 const botoes = document.querySelectorAll('.btn-adicionar');
 
 botoes.forEach((botao, index) => {
