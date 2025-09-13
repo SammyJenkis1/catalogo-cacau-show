@@ -460,6 +460,31 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
   font-weight: bold;
 }
 
+.card.esgotado {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transform: scale(0.97);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card.esgotado:hover {
+  transform: scale(0.99);
+  cursor: not-allowed;
+}
+
+.card.esgotado::after {
+  content: "Esgotado";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #666;      /* cinza neutro */
+  color: #f5f5f5;        /* cinza quase branco */
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
 
   </style>
 </head>
@@ -600,7 +625,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Trufa Tradicional é perfeita para a ocasião, com sua textura macia e recheio cremoso, irá encantar o paladar.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0a5a2195/large/1002633_4.png",
-      esgotado:false,
+      tag: "promo",
     },{
       id: 2,
       nome: "Trufa mezzo | 30G",
@@ -673,6 +698,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Sofisticação em uma trufa irresistível de avelã e chocolate. A Trufa LaNut de Chocolate ao Leite e Avelã é perfeita para qualquer momento do seu dia!",
       preco: 5.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb5c1604e/large/1002642_2.png",
+      esgotado:true,
     },
      {
       id: 11,
@@ -763,6 +789,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Trufa de chocolate branco e ao leite",
       preco: 3.49,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb2a7b5df/large/1003608_1.png",
+      esgotado:true,
     },
      {
       id: 22,
@@ -795,6 +822,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Trufa de chocolate 85% cacau.",
       preco: 3.49,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw84baaf1b/large/1002189_1.png",
+      esgotado:true,
     },
      {
       id: 26,
@@ -1354,6 +1382,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma combinação de chocolate ao leite crocante com licor, ideal para encantar o paladar e surpreender!",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0984d398/large/1002441_1.png",
+      esgotado:true,
     },
      {
       id: 93,
@@ -1696,6 +1725,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Tablete de chocolate ao leite com frases da turma do Bob Esponja, perfeito para aproveitar bons momentos com os amigos, com muito sabor e diversão!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw8572a46f/large/1003695_5.png",
+      esgotado:true,
     },
      {
       id: 133, 
@@ -1712,6 +1742,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Suplemento alimentar em barra, massa 70% com vitamina E que confere efeito antioxidante e auxilia na proteção dos danos causados pelos radicais livres.",
       preco: 12.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0aa860af/large/1003528_1.png",
+      esgotado:true,
     },
      {
       id: 135, 
@@ -1720,7 +1751,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Suplemento alimentar em barra, massa 70% com adição de cafeína que auxilia no aumento do estado de alerta e na melhora da concentração e foco!",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw4c8e0f59/large/1003529_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 136, 
@@ -1729,7 +1760,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Suplemento alimentar em barra, massa 70% com peptídeos bioativos de colágeno hidrolisado que auxiliam na manutenção da saúde da pele.",
       preco: 9.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw39a8db90/large/1003527_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 137, 
@@ -1853,8 +1884,8 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       categoria: "caixas",
       descricao: "Espumante Moscatel Cacau Show",
       preco: 34.99,
-      imagem: "https://s3-sa-east-1.amazonaws.com/deliveryon-uploads/products/cacaushowvassouras/542_62f672bb25879.png",
-      esgotado:true,
+      imagem: "fotoespumante.jpg",
+      esgotado:false,
     },
      {
       id: 153,
@@ -1862,8 +1893,8 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       categoria: "caixas",
       descricao: "Tabletes de chocolate ao leite e branco em uma caixa presenteável, perfeitos para encantar.",
       preco: 34.99,
-      imagem: "https://http2.mlstatic.com/D_NQ_NP_795061-MLB71334591002_082023-O.webp",
-      esgotado:true,
+      imagem: "fotovinho.jpg",
+      esgotado:false,
     },
      {
       id: 154,
@@ -2421,6 +2452,7 @@ function renderProdutos(filter = 'todos', search = '') {
         <button class="btn ghost" data-id="${p.id}" aria-label="Mais detalhes de ${p.nome}">Detalhes</button>
       </div>
     `;
+    
     grid.appendChild(card);
   });
 }
