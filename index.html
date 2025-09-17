@@ -476,14 +476,33 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 .card.esgotado::after {
   content: "Esgotado";
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 8px;
   background: #666;      /* cinza neutro */
   color: #f5f5f5;        /* cinza quase branco */
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 730;
+}
+.thumb-wrapper {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 730;
+  color: #fff;
+}
+.badge-novo {
+  background: #a55514; /* verde */
+}
+.badge-soon {
+  background: #ff9800; /* laranja */
 }
 
   </style>
@@ -528,19 +547,22 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       Finalizar whatsApp
     </a>
 
-    <!-- HERO / Carousel -->
+        <!-- HERO / Carousel -->
     <section class="hero" aria-label="Promoções em destaque">
-      <div class="ribbon">Promoções</div>
+      <div class="ribbon">Promoções & Novidades</div>
       <div id="carousel" class="carousel" role="list">
+        
+        <!-- Promo 1 -->
         <article class="slide" role="listitem" aria-label="Promo 1">
           <div class="promo">
             <h2>Combo Trufas — Leve 4 pague 3</h2>
-            <p>O festival de trufas da Cacau Show chegou! Corre !</p>
+            <p>O festival de trufas da Cacau Show chegou! Corre!</p>
             <a class="cta" href="#grid" data-track="promo-1">Ver produtos</a>
           </div>
           <img src="https://images.unsplash.com/photo-1604908177522-9e0c1b63f5d6?auto=format&fit=crop&w=1200&q=60" alt="Seleção de trufas"/>
         </article>
 
+        <!-- Promo 2 -->
         <article class="slide" role="listitem" aria-label="Promo 2">
           <div class="promo">
             <h2>Minishow — leve 2 unidades e a segunda sai por 19,99</h2>
@@ -550,15 +572,69 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
           <img src="https://images.unsplash.com/photo-1616745301236-e48b3f8ae6b0?auto=format&fit=crop&w=1200&q=60" alt="Tabletes de chocolate"/>
         </article>
 
+        <!-- Promo 3 -->
         <article class="slide" role="listitem" aria-label="Promo 3">
           <div class="promo">
             <h2>Biscoiteria — Leve 2 wafers por apenas 26,99</h2>
             <p>Cookies, wafers e biscoitos para combinar com seu café.</p>
             <a class="cta" href="#grid" data-track="promo-3">Explorar</a>
           </div>
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60" alt="Biscoitos e wafers"/>
+
         </article>
+
+        <!-- Novidade 4 -->
+        <article class="slide" role="listitem" aria-label="Novidade 4">
+          <div class="promo">
+            <h2>Linha Bless — Novidade exclusiva</h2>
+            <p>Tabletes e trufas zero açúcar mas com o gosto de quero mais.</p>
+            <a class="cta" href="#grid" data-track="novidade-4">Conhecer</a>
+          </div>
+          
+        </article>
+
+        <!-- Lançamento 5 -->
+        <article class="slide" role="listitem" aria-label="Lançamento 5">
+          <div class="promo">
+            <h2>Edição Limitada — Harry Potter 🦉</h2>
+            <p>Conheça a linha Harry Potter e se aventure em Hogwarts.</p>
+            <a class="cta" href="#grid" data-track="lancamento-5">Experimentar</a>
+          </div>
+          
+        </article>
+
+        <!-- Presentes 6 -->
+        <article class="slide" role="listitem" aria-label="Novidade 6">
+          <div class="promo">
+            <h2>Kits Presenteáveis 🎁</h2>
+            <p>Surpreenda com combinações exclusivas para todas as ocasiões.</p>
+            <a class="cta" href="#grid" data-track="novidade-6">Escolher agora</a>
+          </div>
+        
+        </article>
+
+        <!-- Funcionais 7 -->
+        <article class="slide" role="listitem" aria-label="Novidade 7">
+          <div class="promo">
+            <h2>Linha Funcional — Chocolate com propósito</h2>
+            <p>Tabletes com benefícios: +energia, bem-estar e sabor.</p>
+            <a class="cta" href="#grid" data-track="novidade-7">Descobrir</a>
+          </div>
+        </article>
+
       </div>
+
+      <!-- Controles -->
+      <div class="carousel-controls">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
       
 
       <div class="carousel-controls" aria-hidden="true">
@@ -625,7 +701,6 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Trufa Tradicional é perfeita para a ocasião, com sua textura macia e recheio cremoso, irá encantar o paladar.",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0a5a2195/large/1002633_4.png",
-      tag: "promo",
     },{
       id: 2,
       nome: "Trufa mezzo | 30G",
@@ -731,6 +806,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Chocolate ao leite com recheio cremoso de maçã e nozes. Um sabor refinado!",
       preco: 4.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw7bf9a20f/large/1003742_1.png",
+      status:"novo",
     }
     ,
      {
@@ -866,6 +942,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "A cremosidade irresistível do chocolate branco laCreme, com um toque caramelizado.",
       preco: 19.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwde6a3d26/large/1003637_1.png",
+      status:"novo",
     },
      {
       id: 31,
@@ -1023,7 +1100,6 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Chocolate ao leite cremoso sem lactose, perfeito para quem não quer abrir mão do sabor!",
       preco: 24.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd9c800d0/large/1002820_1.png",
-      esgotado:true,
     },
      {
       id: 49,
@@ -1274,6 +1350,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Gota de biscoito caramelizado coberta com chocolate ao leite. Um sabor irresistível!!",
       preco: 17.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwf0c34ca7/large/1003682_1.png",
+      status:"novo",
     },
      {
       id: 80,
@@ -1307,6 +1384,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Desfrute do Biscoito ao Leite Harry Potter, uma combinação deliciosa de biscoito crocante e o chocolate ao leite da Cacau Show.",
       preco: 15.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb1dc3f08/large/1003448_1.png",
+      status:"novo",
     },
      {
       id: 84,
@@ -1582,6 +1660,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "A Caixa Brasão Harry Potter traz chocolates deliciosos em embalagem temática inspirada no mundo de Hogwarts, sendo perfeita para fãs da saga e amantes de chocolate.",
       preco: 52.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3f17aea4/large/1003374_1.png",
+      status:"novo",
     },
      {
       id: 116, 
@@ -1644,6 +1723,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Porta jóias que combina trufas e o presente ideal para marcar.",
       preco: 99.99,
       imagem: "https://down-br.img.susercontent.com/file/sg-11134201-7rff9-m94j52emktkwd6",
+      esgotado:true,
     },
      {
       id: 123, 
@@ -1783,9 +1863,10 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       id: 140, 
       nome: "Tablete Harry Potter| 54g",
       categoria: "tabletes 20g",
-      descricao: "Experimente o Tablete Harry Potter ao Leite e Branco da Cacau Show, uma deliciosa combinação de chocolate ao leite e branco. Se delicie!",
+      descricao: "Experimente o Tablete Harry Potter ao Leite e Branco da Cacau Show, uma deliciosa combinação de chocolate ao leite e branco. Se delicie! Acompanha um card com o seu personagem de Hogwarts!",
       preco: 14.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb9f2db3a/large/1003239_1.png",
+      status:"novo",
     },
      {
       id: 141, 
@@ -2036,6 +2117,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Uma delícia em camadas com frutas e 2 chocolates, acompanha um sorvete",
       preco: 49.99,
       imagem: "foto3.jpg",
+      status:"novo",
     },
      {
       id: 171,
@@ -2103,6 +2185,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       descricao: "Chocolate quente de avelã com chantilly",
       preco: 17.90,
       imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQWa7pIO2KD-vBRbrg-d6Nf3jO_3dGMUs7WKyqAt0tGZ6ZRqb_p44JesBjw1HsIG6s1sA&usqp=CAU",
+      status:"novo",
     },
      {
       id: 179,
@@ -2399,33 +2482,37 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 
   ];
   
-  const grid = document.getElementById('grid');
-  const searchInput = document.getElementById('searchInput');
-  const filterChips = document.querySelectorAll('.filters .chip');
-  const modalBackdrop = document.getElementById('modalBackdrop');
-  const modalImg = document.getElementById('modalImg');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
-  const modalPrice = document.getElementById('modalPrice');
-  const addToCartBtn = document.getElementById('addToCartBtn');
-  const closeModalBtn = modalBackdrop.querySelector('.close');
-  const cartWidget = document.getElementById('cartWidget');
-  const cartItemsContainer = document.getElementById('cartItems');
+const grid = document.getElementById('grid');
+const searchInput = document.getElementById('searchInput');
+const filterChips = document.querySelectorAll('.filters .chip');
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalPrice = document.getElementById('modalPrice');
+const addToCartBtn = document.getElementById('addToCartBtn');
+const closeModalBtn = modalBackdrop.querySelector('.close');
+const cartWidget = document.getElementById('cartWidget');
+const cartItemsContainer = document.getElementById('cartItems');
+const toastContainer = document.getElementById('toast-container');
+const whatsappBtn = document.getElementById('whatsappBtn');
+const carousel = document.getElementById('carousel');
+const dots = document.querySelectorAll('.dot');
 
-  let selectedProduct = null;
-  let cart = [];
+let selectedProduct = null;
+let cart = [];
+let currentSlide = 0;
 
-  // Renderizar cards
-  // Renderizar cards
+// === Funções de renderização de produtos ===
 function renderProdutos(filter = 'todos', search = '') {
   grid.innerHTML = '';
-  let filtered = produtos.filter(p => {
+  const filtered = produtos.filter(p => {
     const categoryMatch = filter === 'todos' || p.categoria === filter;
     const searchMatch = p.nome.toLowerCase().includes(search.toLowerCase());
     return categoryMatch && searchMatch;
   });
 
-  if(filtered.length === 0){
+  if (filtered.length === 0) {
     grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--muted); font-weight:700;">Nenhum produto encontrado.</p>`;
     return;
   }
@@ -2433,91 +2520,88 @@ function renderProdutos(filter = 'todos', search = '') {
   filtered.forEach(p => {
     const card = document.createElement('article');
     card.className = 'card';
-    if(p.esgotado) card.classList.add('esgotado'); // ✅ adiciona classe se estiver esgotado
-    card.setAttribute('role','listitem');
+    if (p.esgotado) card.classList.add('esgotado');
+    card.setAttribute('role', 'listitem');
+
+    let selo = "";
+    if (p.status === "novo") selo = `<span class="badge badge-novo">Novidade</span>`;
+    else if (p.status === "em_breve") selo = `<span class="badge badge-soon">Em breve</span>`;
 
     card.innerHTML = `
-      <img class="thumb" src="${p.imagem}" alt="${p.nome}">
+      <div class="thumb-wrapper">
+        <img class="thumb" src="${p.imagem}" alt="${p.nome}">
+        ${selo}
+      </div>
       <div class="meta">
         <h4>${p.nome}</h4>
         <span class="price">R$ ${p.preco.toFixed(2).replace('.',',')}</span>
       </div>
       <p class="desc">${p.descricao}</p>
       <div class="actions">
-        ${
-          p.esgotado 
-          ? `<span class="soldout-label">Esgotado</span>` 
-          : `<button class="btn primary" data-id="${p.id}" aria-label="Comprar ${p.nome}">Comprar</button>`
-        }
+        ${p.esgotado ? `<span class="soldout-label">Esgotado</span>` : `<button class="btn primary" data-id="${p.id}" aria-label="Comprar ${p.nome}">Comprar</button>`}
         <button class="btn ghost" data-id="${p.id}" aria-label="Mais detalhes de ${p.nome}">Detalhes</button>
       </div>
     `;
-    
+
     grid.appendChild(card);
   });
 }
 
-const botoes = document.querySelectorAll('.btn-adicionar');
-
-botoes.forEach((botao, index) => {
-  // Remove listener anterior só por precaução
-  botao.replaceWith(botao.cloneNode(true)); 
-});
-
-botoes.forEach((botao, index) => {
-  botao.addEventListener('click', () => {
-    adicionarAoCarrinho(produtos[index]);
+// === Filtros ===
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    renderProdutos(chip.dataset.category, searchInput.value);
   });
 });
 
-  // Filtrar produtos
-  filterChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      filterChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      renderProdutos(chip.dataset.category, searchInput.value);
-    });
-  });
+// === Busca ===
+searchInput.addEventListener('input', () => {
+  const activeChip = document.querySelector('.filters .chip.active');
+  renderProdutos(activeChip ? activeChip.dataset.category : 'todos', searchInput.value);
+});
 
-  // Buscar produtos
-  searchInput.addEventListener('input', () => {
-    const activeChip = document.querySelector('.filters .chip.active');
-    renderProdutos(activeChip ? activeChip.dataset.category : 'todos', searchInput.value);
-  });
+// === Modal ===
+function openModal(prod) {
+  selectedProduct = prod;
+  modalImg.src = prod.imagem;
+  modalImg.alt = prod.nome;
+  modalTitle.textContent = prod.nome;
+  modalDesc.textContent = prod.descricao;
+  modalPrice.textContent = `R$ ${prod.preco.toFixed(2).replace('.',',')}`;
+  modalBackdrop.style.display = 'flex';
+  modalBackdrop.focus();
+}
 
-  // Modal
-  function openModal(prod) {
-    selectedProduct = prod;
-    modalImg.src = prod.imagem;
-    modalImg.alt = prod.nome;
-    modalTitle.textContent = prod.nome;
-    modalDesc.textContent = prod.descricao;
-    modalPrice.textContent = `R$ ${prod.preco.toFixed(2).replace('.',',')}`;
-    modalBackdrop.style.display = 'flex';
-    modalBackdrop.focus();
-  }
-  function closeModal() {
-    modalBackdrop.style.display = 'none';
-    selectedProduct = null;
-  }
-  closeModalBtn.addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', e => {
-    if(e.target === modalBackdrop) closeModal();
-  });
+function closeModal() {
+  modalBackdrop.style.display = 'none';
+  selectedProduct = null;
+}
 
-  // Carrinho
-  function addToCart(prod) {
-    const existing = cart.find(item => item.id === prod.id);
-    if(existing){
-      existing.qty++;
-    } else {
-      cart.push({...prod, qty:1});
-    }
+closeModalBtn.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', e => { if(e.target === modalBackdrop) closeModal(); });
+
+// === Carrinho ===
+function addToCart(prod) {
+  const existing = cart.find(item => item.id === prod.id);
+  if(existing) existing.qty++;
+  else cart.push({...prod, qty: 1});
+  renderCart();
+}
+
+function removeFromCart(id) {
+  const index = cart.findIndex(item => item.id === id);
+  if(index !== -1) {
+    if(cart[index].qty > 1) cart[index].qty--;
+    else cart.splice(index, 1);
     renderCart();
+    showToast("Produto removido do carrinho.");
   }
+}
 
-  function renderCart() {
-  if(cart.length === 0){
+function renderCart() {
+  if(cart.length === 0) {
     cartWidget.style.display = 'none';
     return;
   }
@@ -2537,118 +2621,66 @@ botoes.forEach((botao, index) => {
     cartItemsContainer.appendChild(div);
   });
 }
-function removeFromCart(id) {
-  const itemIndex = cart.findIndex(item => item.id === id);
-  if(itemIndex !== -1) {
-    if(cart[itemIndex].qty > 1) {
-      cart[itemIndex].qty--; // diminui a quantidade
-    } else {
-      cart.splice(itemIndex, 1); // remove do array
-    }
-    renderCart();
-  }
-}
+
 cartItemsContainer.addEventListener('click', e => {
   const btn = e.target.closest('.remove-btn');
+  if(btn) removeFromCart(Number(btn.dataset.id));
+});
+
+// === Toast ===
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<i>🍫</i> ${message}`;
+  toastContainer.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = 'fadeOut 0.4s ease forwards';
+    toast.addEventListener('animationend', () => toast.remove());
+  }, 2800);
+}
+
+// === Eventos de compra / detalhes ===
+grid.addEventListener('click', e => {
+  const btn = e.target.closest('button');
   if(!btn) return;
-  const id = Number(btn.dataset.id);
-  removeFromCart(id);
-  showToast("Produto removido do carrinho.");
+
+  const prod = produtos.find(p => p.id === Number(btn.dataset.id));
+  if(!prod) return;
+
+  if(btn.classList.contains('primary')) { addToCart(prod); showToast(`Produto "${prod.nome}" adicionado ao carrinho.`); }
+  else if(btn.classList.contains('ghost')) openModal(prod);
 });
-  // Toast (alerta discreto)
-  const toastContainer = document.getElementById('toast-container');
 
-  function showToast(message) {
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = `<i>🍫</i> ${message}`;
-    toastContainer.appendChild(toast);
+addToCartBtn.addEventListener('click', () => { if(selectedProduct){ addToCart(selectedProduct); closeModal(); } });
 
-    setTimeout(() => {
-      toast.style.animation = 'fadeOut 0.4s ease forwards';
-      toast.addEventListener('animationend', () => toast.remove());
-    }, 2800);
-  }
+// === Carousel simples ===
+function showSlide(i) {
+  if(i < 0) i = dots.length-1;
+  if(i >= dots.length) i = 0;
+  carousel.style.transform = `translateX(-${i*100}%)`;
+  dots.forEach(d => d.classList.remove('active'));
+  dots[i].classList.add('active');
+  currentSlide = i;
+}
 
-  // Clique nos botões de Comprar e Detalhes
-  grid.addEventListener('click', e => {
-    const btn = e.target.closest('button');
-    if(!btn) return;
+dots.forEach(dot => dot.addEventListener('click', () => showSlide(Number(dot.dataset.index))));
+showSlide(0);
+setInterval(() => showSlide(currentSlide+1), 5000);
 
-    const id = Number(btn.dataset.id);
-    if(!id) return;
-
-    const prod = produtos.find(p => p.id === id);
-    if(!prod) return;
-
-    if(btn.classList.contains('primary')) {
-      // Comprar direto, adiciona ao carrinho e mostra toast
-      addToCart(prod);
-      showToast(`Produto "${prod.nome}" adicionado ao carrinho.`);
-    } else if(btn.classList.contains('ghost')){
-      // Mostrar modal detalhes
-      openModal(prod);
-    }
-  });
-
-  // Botão Adicionar no modal só adiciona ao carrinho, sem toast, e fecha modal
-  addToCartBtn.addEventListener('click', () => {
-    if(selectedProduct){
-      addToCart(selectedProduct);
-      closeModal();
-    }
-  });
-
-  // Carousel simples auto slide e dots
-  const carousel = document.getElementById('carousel');
-  const dots = document.querySelectorAll('.dot');
-  let currentSlide = 0;
-  function showSlide(i){
-    if(i < 0) i = dots.length -1;
-    if(i >= dots.length) i = 0;
-    carousel.style.transform = `translateX(-${i*100}%)`;
-    dots.forEach(d => d.classList.remove('active'));
-    dots[i].classList.add('active');
-    currentSlide = i;
-  }
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      showSlide(Number(dot.dataset.index));
-    });
-  });
-  showSlide(0);
-  setInterval(() => {
-    showSlide(currentSlide+1);
-  }, 7000);
-
-  // Inicial render
-  renderProdutos();
-
-  // Atualizar botão WhatsApp com pedido
-  const whatsappBtn = document.getElementById('whatsappBtn');
-  whatsappBtn.addEventListener('click', (e) => {
-  if(cart.length === 0){
-    e.preventDefault();
-    alert("Seu carrinho está vazio. Adicione produtos antes de finalizar.");
-    return;
-  }
+// === WhatsApp ===
+whatsappBtn.addEventListener('click', e => {
+  if(cart.length === 0){ e.preventDefault(); alert("Seu carrinho está vazio."); return; }
   let msg = 'Olá, gostaria de fazer o pedido:\n';
-  cart.forEach(item => {
-    msg += `- ${item.nome} x${item.qty} = R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}\n`;
-  });
-  const total = cart.reduce((acc,cur) => acc + cur.preco * cur.qty, 0);
-  msg += `Total: R$ ${total.toFixed(2).replace('.',',')}`;
-
+  cart.forEach(item => msg += `- ${item.nome} x${item.qty} = R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}\n`);
+  msg += `Total: R$ ${cart.reduce((acc,cur)=>acc+cur.preco*cur.qty,0).toFixed(2).replace('.',',')}`;
   const encoded = encodeURIComponent(msg);
-
-  // Pergunta qual número usar
-  if (confirm("Enviar para WhatsApp Saul?\n(Clique em Cancelar para usar o WhatsApp Shopping)")) {
-    window.open(`https://wa.me/5549991599778?text=${encoded}`, "_blank");
-  } else {
-    window.open(`https://wa.me/5549991099778?text=${encoded}`, "_blank");
-  }
+  if(confirm("Enviar para WhatsApp Saul?\nClique em Cancelar para outro número")) window.open(`https://wa.me/5549991599778?text=${encoded}`, "_blank");
+  else window.open(`https://wa.me/5549991099778?text=${encoded}`, "_blank");
 });
 
+// === Inicialização ===
+renderProdutos();
 </script>
+
 </body>
 </html>
