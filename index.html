@@ -504,6 +504,203 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
 .badge-soon {
   background: #ff9800; /* laranja */
 }
+/* ===========================
+   TEMA HARRY POTTER PROFISSIONAL
+=========================== */
+
+/* Fonte mágica */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+body.hp-theme {
+  background: radial-gradient(circle at top, #0b0b0b, #1c0f0f, #0d0d0d); /* Fundo mágico, noite Hogwarts */
+  color: #f5deb3;
+  font-family: 'Cinzel', serif;
+  transition: background-color 0.5s, color 0.5s;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   CARDS DE PRODUTOS
+========================== */
+body.hp-theme .card {
+  background-color: #2c1f0b; 
+  border: 2px solid #d4af37; 
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #f5deb3;
+  box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+  opacity: 0;
+  transform: translateY(30px) rotate(-2deg);
+  animation: fadeInMagic 0.7s forwards;
+  transition: transform 0.4s, box-shadow 0.3s, background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animação de entrada com magia */
+@keyframes fadeInMagic {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* Hover no card */
+body.hp-theme .card:hover {
+  transform: translateY(-10px) rotate(1deg);
+  background-color: #3a2614;
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8);
+}
+
+/* Imagem com efeito mágico */
+body.hp-theme .thumb-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+body.hp-theme .thumb-wrapper img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s ease, filter 0.5s ease;
+}
+
+body.hp-theme .thumb-wrapper img:hover {
+  transform: scale(1.08) rotate(1deg);
+  filter: brightness(1.2) contrast(1.2);
+}
+
+/* Títulos */
+body.hp-theme h4 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: #ffd700;
+  text-shadow: 1px 1px 2px #7f0909, 0 0 10px #d4af37;
+  margin: 0.5rem 0;
+  transition: color 0.3s;
+}
+
+/* Preço estilo Hogwarts */
+body.hp-theme .price {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffdd00;
+  text-shadow: 0 0 5px #ffd700, 1px 1px 3px #7f0909;
+  transition: transform 0.3s, color 0.3s;
+}
+
+body.hp-theme .price:hover {
+  transform: scale(1.15) rotate(-2deg);
+  color: #ffea00;
+}
+
+/* Descrição */
+body.hp-theme .desc {
+  font-size: 0.95rem;
+  color: #f5deb3;
+  line-height: 1.3;
+}
+
+/* Botões */
+body.hp-theme .btn.primary {
+  background-color: #7f0909; 
+  color: #ffd700;
+  border: 1px solid #d4af37;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+body.hp-theme .btn.primary:hover {
+  background-color: #9f1c1c;
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 15px #ffd700, 0 0 30px #ffcc00;
+}
+
+body.hp-theme .btn.ghost {
+  border-color: #d4af37;
+  color: #ffd700;
+}
+
+body.hp-theme .btn.ghost:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+  transform: scale(1.05);
+}
+
+/* Badges */
+body.hp-theme .badge-novo, 
+body.hp-theme .badge-soon {
+  background-color: #d4af37;
+  color: #1b1b1b;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Esgotado */
+body.hp-theme .soldout-label {
+  background-color: #7f0909;
+  color: #ffd700;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Toast */
+body.hp-theme .toast {
+  background: #2c1f0b;
+  color: #ffd700;
+  border-left: 5px solid #7f0909;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  font-weight: 700;
+  animation: fadeInToast 0.4s;
+}
+
+@keyframes fadeInToast {
+  from { opacity: 0; transform: translateX(-20px) rotate(-2deg);}
+  to { opacity: 1; transform: translateX(0) rotate(0deg);}
+}
+
+/* ==========================
+   ELEMENTOS MÁGICOS
+========================== */
+
+/* Faíscas mágicas em background */
+body.hp-theme::before {
+  content: '';
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: url('https://http2.mlstatic.com/D_NQ_NP_864169-MLB26729273568_012018-O-colar-filme-harry-potter-hp-raio-logo-cor-ouro-velho.webp') repeat;
+  opacity: 0.08;
+  pointer-events: none;
+  animation: floatParticles 20s linear infinite;
+}
+
+@keyframes floatParticles {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* Chapéu seletor animado */
+body.hp-theme .thumb-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.5rem;
+  animation: wiggleHat 2s infinite;
+}
+
+@keyframes wiggleHat {
+  0%,100% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  75% { transform: rotate(-15deg); }
+}
+
+
 
   </style>
 </head>
@@ -659,6 +856,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
         <button class="chip" data-category="biscoiteria">Biscoiteria</button>
         <button class="chip" data-category="drageados">Drageados</button>
         <button class="chip" data-category="caixas">Caixas e presentes</button>
+        <button class="chip" data-category="harry">Harry Potter</button>
         <button class="chip" data-category="life">Linha Lifestyle</button>
         <button class="chip" data-category="servico">Serviços e Sobremesas</button>
         <button class="chip" data-category="cestas">Cestas</button>
@@ -2433,55 +2631,102 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
       imagem: "https://gkpb.com.br/wp-content/uploads/2020/12/cacau-show-gelateria-gelato-la-creme-kids-geek-publicitario.jpg",
       esgotado:true,
     },
-    ,
-     {
-      id: 209,
-      nome: "Sorvete LaCreme kids| 70g",
-      categoria: "servico",
-      descricao: "Uma experiência cremosa! LaCreme kids ao leite entrega tudo isso e muito mais.",
-      preco: 16.99,
-      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8AJT8LEOinF-X_NvHIkZ3WmTSl6uuxJpQg&s",
-    },
-    ,
-     {
-      id: 210,
-      nome: "Sorvete biscoiteria| 510ml",
-      categoria: "servico",
-      descricao: "Uma combinação de sorvete e casquinha de chocolate ao leite com pedacinhos de biscoito crocante! Tá bem gostoso, e ainda dá pra ganhar Cacaus",
-      preco: 16.99,
-      imagem: "fotosorvete.jpg",
-    },
-    ,
-     {
-      id: 211,
-      nome: "Sorvete LaCreme mezzo| 510ml",
-      categoria: "servico",
-      descricao: "O Sorvete laCreme Mezzo combina os sabores de chocolate ao leite e branco com uma textura cremosa e irresistível!",
-      preco: 16.99,
-      imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw292f9d0b/large/1002460_1.png",
-      esgotado:true,
-    },
-     {
-      id: 212,
-      nome: "Água sem gás| 510ml",
-      categoria: "servico",
-      descricao: "Água sem gás fonte Aqua fest",
-      preco: 4.50,
-      imagem: "foto6.jpg",
-    },
-     {
-      id: 213,
-      nome: "Água com gás| 510ml",
-      categoria: "servico",
-      descricao: "Água com gás fonte Aqua fest",
-      preco: 5.00,
-      imagem: "foto7.jpg",
-    }
 
+  {
+    id: 209,
+    nome: "Sorvete LaCreme kids| 70g",
+    categoria: "servico",
+    descricao: "Uma experiência cremosa! LaCreme kids ao leite entrega tudo isso e muito mais.",
+    preco: 16.99,
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8AJT8LEOinF-X_NvHIkZ3WmTSl6uuxJpQg&s",
+  },
+  {
+    id: 210,
+    nome: "Sorvete biscoiteria| 510ml",
+    categoria: "servico",
+    descricao: "Uma combinação de sorvete e casquinha de chocolate ao leite com pedacinhos de biscoito crocante! Tá bem gostoso, e ainda dá pra ganhar Cacaus",
+    preco: 16.99,
+    imagem: "fotosorvete.jpg",
+  },
+  {
+    id: 211,
+    nome: "Sorvete LaCreme mezzo| 510ml",
+    categoria: "servico",
+    descricao: "O Sorvete laCreme Mezzo combina os sabores de chocolate ao leite e branco com uma textura cremosa e irresistível!",
+    preco: 16.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw292f9d0b/large/1002460_1.png",
+    esgotado:true,
+  },
+  {
+    id: 212,
+    nome: "Água sem gás| 510ml",
+    categoria: "servico",
+    descricao: "Água sem gás fonte Aqua fest",
+    preco: 4.50,
+    imagem: "foto6.jpg",
+  },
+  {
+    id: 213,
+    nome: "Água com gás| 510ml",
+    categoria: "servico",
+    descricao: "Água com gás fonte Aqua fest",
+    preco: 5.00,
+    imagem: "foto7.jpg",
+  },
+  {
+    id: 214,
+    nome: "Lata chapéu seletor Harry Potter| 108g",
+    categoria: "harry",
+    descricao: "Uma linda lata do Chapéu Seletor do Harry Potter, além de deliciosas trufas.",
+    preco: 54.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw8f09d33a/large/1003778_0.png",
+    esgotado:true,
+  },
+  {
+    id: 215,
+    nome: "Tablete Harry Potter| 54g",
+    categoria: "harry",
+    descricao: "Experimente o Tablete Harry Potter ao Leite e Branco da Cacau Show, uma deliciosa combinação de chocolate ao leite e branco. Se delicie!",
+    preco: 14.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb9f2db3a/large/1003239_1.png",
+    status:"novo",
+  },
+  {
+    id: 216,
+    nome: "Caixa Brasão Harry Potter| 140g",
+    categoria: "harry",
+    descricao: "A Caixa Brasão Harry Potter traz chocolates deliciosos em embalagem temática inspirada no mundo de Hogwarts, sendo perfeita para fãs da saga e amantes de chocolate!",
+    preco: 52.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3f17aea4/large/1003374_1.png",
+    status:"novo",
+  },
+  {
+    id: 217,
+    nome: "Biscoito ao leite Harry Potter| 100g",
+    categoria: "harry",
+    descricao: "Desfrute do Biscoito ao Leite Harry Potter, uma combinação deliciosa de biscoito crocante e o chocolate ao leite da Cacau Show.",
+    preco: 15.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb1dc3f08/large/1003448_1.png",
+  },
+  {
+    id: 218,
+    nome: "Pelúcia Hermione",
+    categoria: "harry",
+    descricao: "Descubra a magia da inteligência, determinação e coragem com este item inspirado em Hermione Granger, a brilhante bruxa de Hogwarts.",
+    preco: 79.90,
+    imagem: "fotohermione.png",
+  },
+  {
+    id: 219,
+    nome: "Pelúcia Harry Potter",
+    categoria: "harry",
+    descricao: "Entre no mundo mágico com este produto inspirado em Harry Potter, o garoto que sobreviveu. Ideal para fãs da saga, ele representa coragem, amizade e a eterna luta pelo bem.",
+    preco: 79.90,
+    imagem: "fotoharry.png",
+    esgotado:true,
+  },
+];
 
-
-  ];
-  
 const grid = document.getElementById('grid');
 const searchInput = document.getElementById('searchInput');
 const filterChips = document.querySelectorAll('.filters .chip');
@@ -2547,6 +2792,24 @@ function renderProdutos(filter = 'todos', search = '') {
   });
 }
 
+// === Tema Harry Potter ===
+const hpAudio = document.getElementById('hp-theme');
+const body = document.body;
+
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    if (chip.dataset.category === 'harry') {
+      body.classList.add('hp-theme');
+      hpAudio.currentTime = 0;
+      hpAudio.play();
+    } else {
+      body.classList.remove('hp-theme');
+      hpAudio.pause();
+      hpAudio.currentTime = 0;
+    }
+  });
+});
+
 // === Filtros ===
 filterChips.forEach(chip => {
   chip.addEventListener('click', () => {
@@ -2584,14 +2847,14 @@ modalBackdrop.addEventListener('click', e => { if(e.target === modalBackdrop) cl
 
 // === Carrinho ===
 function addToCart(prod) {
-  const existing = cart.find(item => item.id === prod.id);
+  const existing = cart.find(item => item.id == prod.id);
   if(existing) existing.qty++;
   else cart.push({...prod, qty: 1});
   renderCart();
 }
 
 function removeFromCart(id) {
-  const index = cart.findIndex(item => item.id === id);
+  const index = cart.findIndex(item => item.id == id);
   if(index !== -1) {
     if(cart[index].qty > 1) cart[index].qty--;
     else cart.splice(index, 1);
@@ -2624,7 +2887,7 @@ function renderCart() {
 
 cartItemsContainer.addEventListener('click', e => {
   const btn = e.target.closest('.remove-btn');
-  if(btn) removeFromCart(Number(btn.dataset.id));
+  if(btn) removeFromCart(btn.dataset.id);
 });
 
 // === Toast ===
@@ -2643,15 +2906,21 @@ function showToast(message) {
 grid.addEventListener('click', e => {
   const btn = e.target.closest('button');
   if(!btn) return;
-
-  const prod = produtos.find(p => p.id === Number(btn.dataset.id));
+  const prod = produtos.find(p => p.id == btn.dataset.id);
   if(!prod) return;
 
-  if(btn.classList.contains('primary')) { addToCart(prod); showToast(`Produto "${prod.nome}" adicionado ao carrinho.`); }
-  else if(btn.classList.contains('ghost')) openModal(prod);
+  if(btn.classList.contains('primary')) { 
+    addToCart(prod); 
+    showToast(`Produto "${prod.nome}" adicionado ao carrinho.`); 
+  } else if(btn.classList.contains('ghost')) openModal(prod);
 });
 
-addToCartBtn.addEventListener('click', () => { if(selectedProduct){ addToCart(selectedProduct); closeModal(); } });
+addToCartBtn.addEventListener('click', () => { 
+  if(selectedProduct){ 
+    addToCart(selectedProduct); 
+    closeModal(); 
+  } 
+});
 
 // === Carousel simples ===
 function showSlide(i) {
@@ -2669,17 +2938,24 @@ setInterval(() => showSlide(currentSlide+1), 5000);
 
 // === WhatsApp ===
 whatsappBtn.addEventListener('click', e => {
-  if(cart.length === 0){ e.preventDefault(); alert("Seu carrinho está vazio."); return; }
+  if(cart.length === 0){ 
+    e.preventDefault(); 
+    alert("Seu carrinho está vazio."); 
+    return; 
+  }
   let msg = 'Olá, gostaria de fazer o pedido:\n';
   cart.forEach(item => msg += `- ${item.nome} x${item.qty} = R$ ${(item.preco*item.qty).toFixed(2).replace('.',',')}\n`);
   msg += `Total: R$ ${cart.reduce((acc,cur)=>acc+cur.preco*cur.qty,0).toFixed(2).replace('.',',')}`;
   const encoded = encodeURIComponent(msg);
-  if(confirm("Enviar para WhatsApp Saul?\nClique em Cancelar para outro número")) window.open(`https://wa.me/5549991599778?text=${encoded}`, "_blank");
-  else window.open(`https://wa.me/5549991099778?text=${encoded}`, "_blank");
+  if(confirm("Enviar para WhatsApp Saul?\nClique em Cancelar para outro número")) 
+    window.open(`https://wa.me/5549991599778?text=${encoded}`, "_blank");
+  else 
+    window.open(`https://wa.me/5549991099778?text=${encoded}`, "_blank");
 });
 
 // === Inicialização ===
 renderProdutos();
+
 </script>
 
 </body>
