@@ -135,53 +135,7 @@ h1{margin:0;font-size:20px}
 p.lead{margin:0;color:var(--muted);font-size:13px}
 
 /* Banner / Carousel */
-.hero{
-  margin:18px 0;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--card-shadow);
-}
-.carousel{
-  display:flex;transition:transform .6s cubic-bezier(.2,.9,.2,1);width:300%;
-}
-.slide{
-  min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px;align-items:center;
-  background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(0,0,0,0));
-}
-.slide .promo{
-  padding:14px 20px;border-radius:14px;
-  background:var(--glass);
-  backdrop-filter:blur(12px) saturate(160%);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-}
-.slide h2{margin:0 0 6px 0;color:var(--choco-1)}
-.slide p{margin:0 0 12px 0;color:var(--muted)}
-.cta{
-  display:inline-block;padding:10px 16px;border-radius:10px;
-  background:linear-gradient(135deg,var(--choco-1),var(--choco-2));
-  color:white;text-decoration:none;font-weight:600;
-  box-shadow:0 6px 18px rgba(75,46,43,0.18);
-  transition:all 0.25s ease;
-}
-.cta:hover{
-  transform:translateY(-3px) scale(1.03);
-  background:linear-gradient(135deg,var(--choco-2),var(--choco-1));
-}
-.slide img{
-  width:100%;height:220px;object-fit:cover;border-radius:12px;
-  transition:transform 0.3s ease;
-}
-.slide img:hover{
-  transform:scale(1.05);
-}
-
-.carousel-controls{
-  position:absolute;left:16px;right:16px;bottom:12px;display:flex;justify-content:center;gap:8px
-}
-.dot{
-  width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);
-  box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;
-  transition:all 0.2s ease;
-}
-.dot.active{background:var(--accent);transform:scale(1.25)}
-.dot:hover{transform:scale(1.2)}
+.hero { margin: 18px 0; border-radius: 14px; overflow: hidden; position: relative; box-shadow: var(--card-shadow); } .carousel { display: flex; transition: transform .6s cubic-bezier(.2,.9,.2,1); width: 100%; /* largura fluida */ } .slide { flex: 0 0 100%; /* cada slide ocupa 100% */ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 28px; align-items: center; background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(0,0,0,0)); } .slide .promo { padding: 14px 20px; border-radius: 14px; background: var(--glass); backdrop-filter: blur(12px) saturate(160%); box-shadow: 0 6px 20px rgba(0,0,0,0.12); } .slide h2 { margin: 0 0 6px 0; color: var(--choco-1); } .slide p { margin: 0 0 12px 0; color: var(--muted); } .cta { display: inline-block; padding: 10px 16px; border-radius: 10px; background: linear-gradient(135deg, var(--choco-1), var(--choco-2)); color: white; text-decoration: none; font-weight: 600; box-shadow: 0 6px 18px rgba(75,46,43,0.18); transition: all 0.25s ease; } .cta:hover { transform: translateY(-3px) scale(1.03); background: linear-gradient(135deg, var(--choco-2), var(--choco-1)); } .slide img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; transition: transform 0.3s ease; } .slide img:hover { transform: scale(1.05); } .carousel-controls { position: absolute; left: 16px; right: 16px; bottom: 12px; display: flex; justify-content: center; gap: 8px; } .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.6); box-shadow: 0 2px 6px rgba(0,0,0,0.12); cursor: pointer; transition: all 0.2s ease; } .dot.active { background: var(--accent); transform: scale(1.25); } .dot:hover { transform: scale(1.2); }
 
 /* Filters & Search */
 .controls{display:flex;gap:12px;align-items:center;margin:14px 0;flex-wrap: wrap;}
@@ -685,14 +639,19 @@ body.hp-theme::before {
 }
 
 /* Chapéu seletor animado */
-body.hp-theme .thumb-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 1.5rem;
-  animation: wiggleHat 2s infinite;
+body.hp-theme header {
+  background: linear-gradient(90deg, #0d0d0d, #3a2614);
+  border-bottom: 2px solid #d4af37;
+  padding: 16px 24px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 5px 15px rgba(212,175,55,0.4);
 }
+body.hp-theme header h1 {
+  font-size: 1.8rem;
+  color: #ffd700;
+  text-shadow: 2px 2px 6px #7f0909;
+}
+
 
 @keyframes wiggleHat {
   0%,100% { transform: rotate(0deg); }
@@ -756,17 +715,17 @@ body.hp-theme .thumb-wrapper::after {
             <p>O festival de trufas da Cacau Show chegou! Corre!</p>
             <a class="cta" href="#grid" data-track="promo-1">Ver produtos</a>
           </div>
-          <img src="https://images.unsplash.com/photo-1604908177522-9e0c1b63f5d6?auto=format&fit=crop&w=1200&q=60" alt="Seleção de trufas"/>
+          <img src="https://www.cacaushow.com.br/dw/image/v2/BFJD_PRD/on/demandware.static/-/Sites-CacauShow-Library/default/dw32a588f7/Home/Banner-Carrossel/banner_footer_1264x530.jpg" alt="Seleção de trufas"/>
         </article>
 
         <!-- Promo 2 -->
         <article class="slide" role="listitem" aria-label="Promo 2">
           <div class="promo">
-            <h2>Minishow — leve 2 unidades e a segunda sai por 19,99</h2>
-            <p>Bombons sortidos que derretem na boca.</p>
+            <h2>Tabletes 100g — leve 2 unidades de tablete LaCreme e o segundo sai por 10,00</h2>
+            <p>Tabletes LaCreme recheados.</p>
             <a class="cta" href="#grid" data-track="promo-2">Compre agora</a>
           </div>
-          <img src="https://images.unsplash.com/photo-1616745301236-e48b3f8ae6b0?auto=format&fit=crop&w=1200&q=60" alt="Tabletes de chocolate"/>
+          <img src="https://www.cacaushow.com.br/dw/image/v2/BFJD_PRD/on/demandware.static/-/Sites-CacauShow-Library/default/dw35fed9fe/Home/Banner-Carrossel/1264x530%20px.png" alt="Tabletes de chocolate"/>
         </article>
 
         <!-- Promo 3 -->
@@ -776,37 +735,39 @@ body.hp-theme .thumb-wrapper::after {
             <p>Cookies, wafers e biscoitos para combinar com seu café.</p>
             <a class="cta" href="#grid" data-track="promo-3">Explorar</a>
           </div>
-
+          <img src="https://www.cacaushow.com.br/dw/image/v2/BFJD_PRD/on/demandware.static/-/Sites-CacauShow-Library/default/dwd88959ef/Home/Banner-Carrossel/ecomm_desk_biscoiteria.png" alt="Tabletes de chocolate"/>
         </article>
 
         <!-- Novidade 4 -->
         <article class="slide" role="listitem" aria-label="Novidade 4">
           <div class="promo">
-            <h2>Linha Bless — Novidade exclusiva</h2>
-            <p>Tabletes e trufas zero açúcar mas com o gosto de quero mais.</p>
+            <h2>Primeira fornada Cacau Show</h2>
+            <p>Comece a viver o verdadeiro natal!</p>
             <a class="cta" href="#grid" data-track="novidade-4">Conhecer</a>
           </div>
+          <img src="https://www.cacaushow.com.br/dw/image/v2/BFJD_PRD/on/demandware.static/-/Sites-CacauShow-Library/default/dwde84a252/Home/Banner-Carrossel/1264x530_fornada.jpg" alt="Natal">               
           
         </article>
 
         <!-- Lançamento 5 -->
         <article class="slide" role="listitem" aria-label="Lançamento 5">
           <div class="promo">
-            <h2>Edição Limitada — Harry Potter 🦉</h2>
+            <h2>Edição Limitada — Harry Potter</h2>
             <p>Conheça a linha Harry Potter e se aventure em Hogwarts.</p>
             <a class="cta" href="#grid" data-track="lancamento-5">Experimentar</a>
           </div>
+          <img src="https://www.buscacliente.com.br/wp-content/uploads/2025/09/Cacau-Show-lanca-lata-Chapeu-Seletor-Harry-Potter-para-o-Dia-das-Criancas-2025.png" alt="caixas">
           
         </article>
 
         <!-- Presentes 6 -->
         <article class="slide" role="listitem" aria-label="Novidade 6">
           <div class="promo">
-            <h2>Kits Presenteáveis 🎁</h2>
-            <p>Surpreenda com combinações exclusivas para todas as ocasiões.</p>
+            <h2>Linha Bless</h2>
+            <p>Conheça a nova linha Bless, trazendo a inovação para o mundo dos chocolates 0% açúcar e 0% lactose.</p>
             <a class="cta" href="#grid" data-track="novidade-6">Escolher agora</a>
           </div>
-        
+        <img src="https://marcaspelomundo.com.br/wp-content/uploads/2025/01/handler-17.png" alt="caixas">
         </article>
 
         <!-- Funcionais 7 -->
@@ -816,6 +777,7 @@ body.hp-theme .thumb-wrapper::after {
             <p>Tabletes com benefícios: +energia, bem-estar e sabor.</p>
             <a class="cta" href="#grid" data-track="novidade-7">Descobrir</a>
           </div>
+          <img src="https://grandesnomesdapropaganda.com.br/wp-content/uploads/2025/02/Screenshot-2025-02-13-at-14.18.18.png" alt="novidade-4">
         </article>
 
       </div>
@@ -853,6 +815,7 @@ body.hp-theme .thumb-wrapper::after {
         <button class="chip" data-category="trufas">Trufas</button>
         <button class="chip" data-category="tabletes 100g">Tabletes 100g | 130g</button>
          <button class="chip" data-category="tabletes 20g">Tabletes 20g | 30g | 5g</button>
+         <button class="chip" data-category="lacreme">LaCreme</button>
         <button class="chip" data-category="biscoiteria">Biscoiteria</button>
         <button class="chip" data-category="drageados">Drageados</button>
         <button class="chip" data-category="caixas">Caixas e presentes</button>
@@ -1658,7 +1621,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Uma combinação de chocolate ao leite crocante com licor, ideal para encantar o paladar e surpreender!",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw0984d398/large/1002441_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 93,
@@ -1715,6 +1678,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Pistaches inteiros cobertos com chocolate branco e pasta de pistache. Sofisticação em cada mordida.",
       preco: 29.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw63f9c8ee/large/1003694_1.png",
+      esgotado:true,
     },
      {
       id: 100, 
@@ -1763,7 +1727,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Com uma seleção especial de bombons que combinam texturas e recheios irresistíveis.",
       preco: 99.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw58114aac/large/1001680_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 106, 
@@ -1831,7 +1795,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Oferece uma deliciosa variedade de sabores em uma embalagem sofisticada, ideal para presentear ou saborear!",
       preco: 34.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd2fd5330/large/1002768_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 113, 
@@ -1849,7 +1813,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Deliciosos bombons recheados em uma embalagem elegante. Perfeita para presentear ou saborear em momentos especiais..",
       preco: 54.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd14fc96b/large/1003333_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 115, 
@@ -1867,7 +1831,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Variados sabores dos deliciosos bombons laCreme, de chocolate ao leite e branco",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3ab42ae7/large/1003102_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 117, 
@@ -1885,7 +1849,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "A Caixa de Bombons Mini Show LaNut tem bombons de chocolate ao leite com recheio cremoso de avelã. Sabor clássico e refinado!",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw2666003b/large/1002631_1.png",
-      esgotado:true,
+      esgotado:false,
     }
 ,
      {
@@ -1895,7 +1859,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Saboreie os deliciosos bombons ao leite da Cacau Show com a Caixa de Bombons Mini Show laCreme ao Leite, ideal para presentear ou se deliciar durante o dia!.",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd5cd9254/large/1002628_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 120, 
@@ -1904,7 +1868,7 @@ body.hp-theme .thumb-wrapper::after {
       descricao: "Combina a cremosidade do pistache com chocolates ao leite e branco, oferecendo uma explosão de sabores!",
       preco: 39.99,
       imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3dcda115/large/1003229_1.png",
-      esgotado:true,
+      esgotado:false,
     },
      {
       id: 121, 
@@ -2725,6 +2689,133 @@ body.hp-theme .thumb-wrapper::after {
     imagem: "fotoharry.png",
     esgotado:true,
   },
+  {
+    id: 220,
+    nome: "Tablete laCreme de Chocolate ao Leite | 100g",
+    categoria: "lacreme",
+    descricao: "O Tablete laCreme de Chocolate ao Leite, cremoso e irresistível, feito com o famoso chocolate ao leite laCreme, que derrete na boca e encanta o paladar!",
+    preco: 19.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw95674abd/large/1002638_2.png",
+    status:"novo",
+  },{
+    id: 221,
+    nome: "Tablete laCreme de Chocolate Mezzo | 100g",
+    categoria: "lacreme",
+    descricao: "Desfrute do Tablete laCreme de Chocolate Mezzo, que combina o sabor suave do chocolate ao leite com o delicioso chocolate branco da Cacau Show.",
+    preco: 19.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw932c2c73/large/1003107_2t.png",
+    status:"novo",
+  },{
+    id: 222,
+    nome: "Tablete laCreme de Chocolate Branco | 100g",
+    categoria: "lacreme",
+    descricao: "Descubra o Tablete laCreme de Chocolate Branco, suave e cremoso, perfeito para se deliciar no dia a dia ou para compartilhar com alguém especial!",
+    preco: 19.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwf278cfc5/large/1002866_2.png",
+    status:"novo",
+  },{
+    id: 223,
+    nome: "Tablete laCreme de Chocolate ao Leite e Intenso | 100g",
+    categoria: "lacreme",
+    descricao: "O Tablete de Chocolate ao Leite e Intenso é o equilíbrio perfeito entre cremosidade e chocolate intenso, para quem ama sabor autêntico.",
+    preco: 21.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw4bf51236/large/1003774_1.png",
+    status:"novo",
+  },{
+    id: 224,
+    nome: "Tablete laCreme de Chocolate ao Leite e Avelã | 100g",
+    categoria: "lacreme",
+    descricao: "Tablete laCreme de Chocolate ao Leite e Avelã: sabor único e inesquecível. Aqui, o chocolate ao leite e a avelã formam uma irresistível combinação.",
+    preco: 19.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3a1e6372/large/1003790_1.png",
+    status:"novo",
+  },{
+    id: 225,
+    nome: "Tablete laCreme de Chocolate Branco com Pistache | 100g",
+    categoria: "lacreme",
+    descricao: "Delicie-se com o Tablete laCreme Branco com Pistache: delicioso chocolate branco, combinado ao sabor sofisticado do pistache.",
+    preco: 21.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw58766799/large/1003788_1.png",
+    status:"novo",
+  },{
+    id: 226,
+    nome: "Tablete laCreme Gold de Chocolate Branco | 100g",
+    categoria: "lacreme",
+    descricao: "A cremosidade irresistível do chocolate branco laCreme, com um toque caramelizado. Se presenteie ou surpreenda uma pessoa especial com esse sabor único!",
+    preco: 19.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwde6a3d26/large/1003637_1.png",
+    status:"novo",
+  },{
+    id: 227,
+    nome: "Tablete laCreme ao leite | 100g",
+    categoria: "lacreme",
+    descricao: "O tablete LaCreme de chocolate ao leite, cremoso e irresistível!",
+    preco: 19.99,
+    imagem: "https://m.media-amazon.com/images/I/41mSaln5nvL.jpg",
+  },{
+    id: 228,
+    nome: "Caixa de Bombons Mini Show laCreme ao Leite | 108g",
+    categoria: "lacreme",
+    descricao: "Saboreie os deliciosos bombons ao leite da Cacau Show com a Caixa de Bombons Mini Show laCreme ao Leite, ideal para presentear ou se deliciar durante o dia!",
+    preco: 39.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd5cd9254/large/1002628_1.png",
+  },{
+    id: 229,
+    nome: "Caixa de Bombons Mini Show laCreme mezzo | 108g",
+    categoria: "lacreme",
+    descricao: "Descubra a Caixa de Bombons Mini Show laCreme Sortido da Cacau Show e aprecie os variados sabores dos deliciosos bombons laCreme, de chocolate ao leite e branco. !",
+    preco: 39.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw3ab42ae7/large/1003102_1.png",
+  },{
+    id: 230,
+    nome: "Caixa de Trufas laCreme ao Leite e Branco | 160g",
+    categoria: "lacreme",
+    descricao: "Delicie-se com a Caixa de Trufas laCreme ao Leite e Branco, uma combinação irresistível de sabores em cada trufa, ideal para se deliciar durante o dia ou para presentear!",
+    preco: 39.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwea7e6aab/large/1000624_1.png",
+  },{
+    id: 231,
+    nome: "Caixa de Trufas laCreme ao Leite | 225g",
+    categoria: "lacreme",
+    descricao: "Conheça a Caixa de Trufas laCreme ao Leite, sofisticada e de sabor marcante com as trufas laCreme, perfeita para presentear e transformar qualquer momento em celebrações.",
+    preco: 79.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw6ca5cf08/large/1000690_1.png",
+  },{
+    id: 232,
+    nome: "Slack LaCreme avelã | 315g",
+    categoria: "lacreme",
+    descricao: "Slack LaNut, com um sabor irresistível de avelã.",
+    preco: 34.99,
+    imagem: "https://m.media-amazon.com/images/I/41kMNxEFRaL.jpg",
+  },{
+    id: 233,
+    nome: "Trufa LaCreme ao leite | 13,5g",
+    categoria: "lacreme",
+    descricao: "Conheça a deliciosa Trufa laCreme ao Leite, a combinação perfeita de suavidade e cremosidade, além de seu sabor característico e único. Experimente!",
+    preco: 3.49,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwf4f5c209/large/1002193_1.png",
+  },{
+    id: 234,
+    nome: "Trufa LaCreme kids ao leite | 13,5g",
+    categoria: "lacreme",
+    descricao: "A Trufa laCreme Kids oferece uma experiência única de sabor, experimente!",
+    preco: 3.49,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dw86ef672d/large/1002196_1.png",
+  },{
+    id: 235,
+    nome: "Trufa LaCreme kids ao leite | 13,5g",
+    categoria: "lacreme",
+    descricao: "A Trufa laCreme Branco derrete na boca com seu delicioso e irresistível chocolate branco. Conta com a qualidade e o sabor inconfundíveis da Cacau Show, encante-se!",
+    preco: 3.49,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwa4adc197/large/1002194_1.png",
+  },{
+    id: 236,
+    nome: "Pelúcia Cremilda",
+    categoria: "lacreme",
+    descricao: "A Pelúcia laCreme Vaquinha Cremilda é uma fofura divertida e macia, perfeita para presentear ou colecionar. A alegria da Cacau Show em forma de pelúcia!!",
+    preco: 89.99,
+    imagem: "https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwb68692a3/large/2001204_1.png",
+  }
 ];
 
 const grid = document.getElementById('grid');
